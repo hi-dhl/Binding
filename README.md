@@ -1,16 +1,19 @@
 # <p align="center"> Binding </p>
 
 <p align="center">
-
-一行代码实现 DataBinding 和 ViewBinding，欢迎 start<br/><br/>
-
-<image src="http://img.hi-dhl.com/carbon.png"/>
+一行代码实现 DataBinding 和 ViewBinding，欢迎 start<br/>
+<p align="center">
+<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a> <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/license-Apache2.0-blue.svg?style=flat"></a> <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
+</p>
 </p>
 
-**功能：**
+<p align="center">
+<image src="http://img.hi-dhl.com/carbon.png" width = 600px/>
+</p>
+
 
 * 兼容了 DataBinding 和 ViewBinding 两种方式
-* 避免模板代码，只需要一行代码即可实现 DataBinding 和 ViewBinding 
+* 避免模板代码，只需要一行代码即可实现 DataBinding 或者 ViewBinding 
 * 避免内存泄露
 
 ## Download

@@ -3,7 +3,6 @@ package com.hi.dhl.demo.binding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.hi.dhl.binding.databind
-import com.hi.dhl.binding.viewbind
 import com.hi.dhl.demo.binding.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
@@ -38,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         addFragment()
+        AppDialog(this).show()
     }
 
     private fun addFragment() {

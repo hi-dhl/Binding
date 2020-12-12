@@ -21,7 +21,7 @@ import kotlin.reflect.KProperty
 
 class ActivityBindingDelegate<T : ViewBinding>(
     activity: Activity,
-    @LayoutRes val resId: Int = -1,
+    @LayoutRes val resId: Int,
 ) : ReadOnlyProperty<Activity, T> {
 
     private var viewBinding: T? = null

@@ -22,7 +22,7 @@ class FragmentBindingDelegate<T : ViewBinding>(
     private var viewBinding: T? = null
 
     init {
-        fragment.lifecycle.addObserver { onDestroyed() }
+        fragment.lifecycle.addObserver { destroyed() }
     }
 
     override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
@@ -36,7 +36,7 @@ class FragmentBindingDelegate<T : ViewBinding>(
         }
     }
 
-    private fun onDestroyed() {
+    private fun destroyed() {
         viewBinding = null
     }
 }

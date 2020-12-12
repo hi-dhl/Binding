@@ -3,6 +3,7 @@ package com.hi.dhl.demo.binding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.hi.dhl.binding.databind
+import com.hi.dhl.binding.viewbind
 import com.hi.dhl.demo.binding.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
@@ -12,12 +13,18 @@ class MainActivity : AppCompatActivity() {
 
     val mainViewModel: MainViewModel by viewModel()
 
+
+    // DataBinding
     val binding: ActivityMainBinding by databind(R.layout.activity_main)
+    // ViewBinding
+//    val binding: ActivityMainBinding by viewbind()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-        binding.apply { viewModel = mainViewModel }
+        binding.apply {
+            viewModel = mainViewModel
+            textView.setText("Binding")
+        }
 
         val timer = Timer()
         timer.schedule(

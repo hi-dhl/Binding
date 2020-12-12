@@ -6,6 +6,7 @@ import android.os.Message
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.hi.dhl.binding.databind
+import com.hi.dhl.binding.viewbind
 import com.hi.dhl.demo.binding.databinding.FragmentMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*

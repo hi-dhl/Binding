@@ -1,20 +1,29 @@
 # <p align="center"> Binding </p>
 
 <p align="center">
-一行代码实现 DataBinding 和 ViewBinding，欢迎 start<br/>
+一行代码实现 DataBinding 和 ViewBinding，欢迎 star<br/>
 <p align="center">
 <a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a> <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/license-Apache2.0-blue.svg?style=flat"></a> <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
 </p>
 </p>
 
 <p align="center">
-<image src="http://img.hi-dhl.com/carbon.png" width = 600px/>
+<image src="http://img.hi-dhl.com/carbon-1.png" width = 600px/>
 </p>
 
+### 更新记录
 
-* 兼容了 DataBinding 和 ViewBinding 两种方式
+**1.0.1**
+
+* 添加了 ViewBinding 在 Dialog 中的使用，  `by viewbind` 或者 `by viewbind(lifecycle)` 
+
+**1.0.0**
+
+* 添加 DataBinding 和 ViewBinding 在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 中的使用
 * 避免模板代码，只需要一行代码即可实现 DataBinding 或者 ViewBinding 
-* 避免内存泄露
+* 当生命周期处于 `onDestroyed()` 时会自动销毁数据
+
+**如果这个仓库对你有帮助，请在仓库右上角帮我 star 一下，非常感谢。**
 
 ## Download
 
@@ -32,14 +41,14 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.0.0'
+    implementation 'com.hi-dhl:binding:1.0.1'
 }
 ```
 
 
 ## Usage
 
-在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 使用方式如下所示。
+在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 中使用方式如下所示。
 
 ```
 class MainActivity : AppCompatActivity() {
@@ -58,7 +67,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-在 `Fragment` 使用方式如下所示。
+在 `Fragment` 中使用方式如下所示。
 
 ```
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -70,6 +79,34 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply { textView.setText("Binding") }
+    }
+}
+```
+
+在 `Dialog` 中使用方式如下所示。
+
+```
+class AppDialog(context: Context) : Dialog(context, R.style.AppDialog) {
+
+    val binding: DialogAppBinding by viewbind()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding.apply { result.setText("DialogAppBinding") }
+    }
+}
+```
+
+或者添加生命周期监听
+
+```
+class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style.AppDialog) {
+
+    val binding: DialogAppBinding by viewbind(lifecycle)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding.apply { result.setText("DialogAppBinding") }
     }
 }
 ```

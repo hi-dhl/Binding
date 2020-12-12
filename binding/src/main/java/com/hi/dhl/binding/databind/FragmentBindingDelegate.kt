@@ -1,26 +1,25 @@
-package com.hi.dhl.binding.viewbind
+package com.hi.dhl.binding.databind
 
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.hi.dhl.binding.addObserver
-import com.hi.dhl.binding.bindMethod
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 /**
  * <pre>
  *     author: dhl
- *     date  : 2020/12/11
+ *     date  : 2020/12/10
  *     desc  :
  * </pre>
  */
-class FragmentViewBindingDelegate<T : ViewBinding>(
-    classes: Class<T>,
+
+class FragmentBindingDelegate<T : ViewBinding>(
     fragment: Fragment
 ) : ReadOnlyProperty<Fragment, T> {
 
-    var viewBinding: T? = null
-    val bindView = classes.bindMethod()
+    private var viewBinding: T? = null
 
     init {
         fragment.lifecycle.addObserver { onDestroyed() }
@@ -28,11 +27,11 @@ class FragmentViewBindingDelegate<T : ViewBinding>(
 
     override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
         return viewBinding?.run {
-            return this
+            this
 
         } ?: let {
 
-            val bind = bindView.invoke(null, thisRef.view) as T
+            val bind: T = DataBindingUtil.bind(thisRef.view!!)!!
             return bind.apply { viewBinding = this }
         }
     }

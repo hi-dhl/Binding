@@ -18,7 +18,7 @@ import kotlin.reflect.KProperty
  * </pre>
  */
 
-class ActivityViewBindingDelegate<T : ViewBinding>(
+class ActivityBindingDelegate<T : ViewBinding>(
     classes: Class<T>,
     activity: Activity
 ) : ReadOnlyProperty<Activity, T> {

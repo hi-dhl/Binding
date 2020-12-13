@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,10 +7,21 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_40dp"
+        android:gravity="center_horizontal"
+        android:text="演示了常用示例，更多示例正在完善中 \n 关注公众号：ByteCode，了解最新信息"
+        android:lineHeight="25dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_16sp" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnDataBind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_20dp"
         android:text="DataBinding 示例" />
 
     <androidx.appcompat.widget.AppCompatButton

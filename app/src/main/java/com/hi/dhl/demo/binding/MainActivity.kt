@@ -12,7 +12,6 @@ import com.hi.dhl.demo.binding.viewbind.ViewBindActivity
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     val binding: ActivityMainBinding by viewbind()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,8 +19,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             it.setOnClickListener(this)
         }
 
-//        addFragment()
-//        AppDialog(this, lifecycle).show()
     }
 
     override fun onClick(v: View) {
@@ -37,9 +34,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         arrayListOf<View>(btnDataBind, btnViewBind)
     }
 
-//    private fun addFragment() {
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.container, MainFragment())
-//            .commit()
-//    }
 }

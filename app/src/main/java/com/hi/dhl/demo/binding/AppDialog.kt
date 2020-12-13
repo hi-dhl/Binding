@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.view.Window
+import androidx.lifecycle.Lifecycle
 import com.hi.dhl.binding.viewbind
 import com.hi.dhl.demo.binding.databinding.DialogAppBinding
 
@@ -14,9 +15,9 @@ import com.hi.dhl.demo.binding.databinding.DialogAppBinding
  *     desc  :
  * </pre>
  */
-class AppDialog(context: Context) : Dialog(context, R.style.AppDialog) {
+class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style.AppDialog) {
 
-    val binding: DialogAppBinding by viewbind()
+    val binding: DialogAppBinding by viewbind(lifecycle)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

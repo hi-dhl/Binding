@@ -18,26 +18,26 @@ import java.util.*
  *     desc  :
  * </pre>
  */
-class MainFragment : Fragment(R.layout.fragment_main) {
-    val binding: FragmentMainBinding by databind()
-    val mainViewModel: MainViewModel by viewModel()
-
-    val handler = Handler(object : Handler.Callback {
-        override fun handleMessage(msg: Message): Boolean {
-            mainViewModel.inputName.set("Time: " + System.currentTimeMillis())
-            return true
-        }
-    })
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.apply { viewModel = mainViewModel }
-
-        val timer = Timer()
-        timer.schedule(object : TimerTask() {
-            override fun run() {
-                handler.sendEmptyMessage(100)
-            }
-        }, 0, 500)
-    }
-}
+//class MainFragment : Fragment(R.layout.fragment_main) {
+//    val binding: FragmentMainBinding by databind()
+//    val mainViewModel: MainViewModel by viewModel()
+//
+//    val handler = Handler(object : Handler.Callback {
+//        override fun handleMessage(msg: Message): Boolean {
+////            mainViewModel.inputName.set("Time: " + System.currentTimeMillis())
+//            return true
+//        }
+//    })
+//
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        binding.apply { viewModel = mainViewModel }
+//
+//        val timer = Timer()
+//        timer.schedule(object : TimerTask() {
+//            override fun run() {
+//                handler.sendEmptyMessage(100)
+//            }
+//        }, 0, 500)
+//    }
+//}

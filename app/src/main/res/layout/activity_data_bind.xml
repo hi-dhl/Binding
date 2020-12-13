@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="account"
+            type="com.hi.dhl.demo.binding.Account" />
+
+        <variable
+            name="mainViewModel"
+            type="com.hi.dhl.demo.binding.MainViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:gravity="center_horizontal"
+            android:text="这里仅仅演示 DataBinding 常用的几种用法" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnBindRandom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="双向绑定" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:gravity="center_horizontal"
+            android:text="@={mainViewModel.inputnNumber}"
+            android:textColor="@color/black"
+            tools:text="---------" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnBindAdapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="BindingAdapter 注解的使用" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            app:bindingLiveData="@{mainViewModel.userLiveData}"
+            tools:text="------" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:gravity="center_horizontal"
+            android:text="可观察属性 BaseObservable 示例"
+            android:textColor="@color/black" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:gravity="center_horizontal"
+            android:text="@{mainViewModel.bindAccount().name}"
+            android:textColor="@color/black"
+            tools:text="------" />
+
+    </LinearLayout>
+</layout>

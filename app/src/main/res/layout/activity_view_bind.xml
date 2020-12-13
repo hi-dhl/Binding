@@ -19,4 +19,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ViewBinding 示例" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@={viewModel.inputName}"
+        android:textColor="@color/black" />
 </LinearLayout>

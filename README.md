@@ -32,7 +32,6 @@
 将下列代码添加进模块 build.gradle 文件内，并且开启 DataBinding 或者 ViewBinding
 
 ```
-
 android {
     buildFeatures {
         dataBinding = true

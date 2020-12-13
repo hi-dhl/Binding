@@ -50,10 +50,11 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     implementation "org.koin:koin-androidx-viewmodel:${koin_version}"
+    implementation "io.coil-kt:coil:1.1.0"
 
-    if(remote){
+    if (remote) {
         implementation 'com.hi-dhl:binding:1.0.1'
-    }else{
+    } else {
         implementation project(':binding')
     }
 

@@ -144,3 +144,13 @@ class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style
 
 * 「为互联网人而设计，国内国外名站导航」涵括新闻、体育、生活、娱乐、设计、产品、运营、前端开发、Android 开发等等网址，欢迎前去查看 [为互联网人而设计导航网站](https://site.51git.cn)
 
+**感谢**
+
+中文：
+
+感谢 [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)  文章带来的思路，以及从 [Anko](https://github.com/Kotlin/anko) 、和 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) 等等开源库中学习到技巧
+
+English:
+
+Thanks to the [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c) 、  [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) and [Anko](https://github.com/Kotlin/anko) ... open source project
+

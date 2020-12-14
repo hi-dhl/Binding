@@ -14,18 +14,24 @@
 </p>
 
 <p align="center">
-<image src="http://img.hi-dhl.com/viewbinding.001.png" width = 600px/>
+<image src="http://img.hi-dhl.com/ViewBinding2.png" width = 600px/>
 </p>
 
 
 
 ### 更新记录
 
-**1.0.1**
+**2020-12-14:**
+
+* Demo 增加 DataBinding 示例
+* Demo 增加 ViewBinding 示例
+* Demo 增加 kotlin-parcelize 示例
+
+**2020-12-13（V1.0.1）**
 
 * 添加了 ViewBinding 在 Dialog 中的使用，  `by viewbind` 或者 `by viewbind(lifecycle)` 
 
-**1.0.0**
+**2020-12-12（V1.0.0）**
 
 * 添加 DataBinding 和 ViewBinding 在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 中的使用
 * 避免模板代码，只需要一行代码即可实现 DataBinding 或者 ViewBinding 

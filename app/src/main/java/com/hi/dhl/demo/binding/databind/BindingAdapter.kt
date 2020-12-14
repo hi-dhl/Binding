@@ -26,7 +26,7 @@ fun bindingImage(imageView: ImageView, url: String?) {
 @BindingAdapter("bindingLiveData")
 fun bindingLiveData(textView: TextView, user: User?) {
     user?.apply {
-        textView.setText("@BindingAdapter + LiveData 示例 \n")
+        textView.setText("@BindingAdapter + LiveData + parcelize 示例 \n")
         textView.append("${name} - ${account}")
     }
 

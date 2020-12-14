@@ -7,10 +7,10 @@
 </p>
 </p>
 
-<p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/carbon-1.png"> 图例1</a> | <a href="http://img.hi-dhl.com/viewbinding.001.png"> 图例2</a></p>
+<p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/viewBinding3.001.png"> 图例1</a> | <a href="http://img.hi-dhl.com/viewbinding.001.png"> 图例2</a></p>
 
 <p align="center">
-<image src="http://img.hi-dhl.com/carbon-1.png" width = 600px/>
+<image src="http://img.hi-dhl.com/viewBinding3.001.png" width = 600px/>
 </p>
 
 <p align="center">
@@ -37,7 +37,7 @@
 
 **Gradle**
 
-将下列代码添加进模块 build.gradle 文件内，并且开启 DataBinding 或者 ViewBinding
+将下列代码添加在模块级 `build.gradle` 文件中，并且需要开启 DataBinding 或者 ViewBinding
 
 ```
 android {

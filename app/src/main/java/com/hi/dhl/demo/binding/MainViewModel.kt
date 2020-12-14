@@ -1,5 +1,6 @@
 package com.hi.dhl.demo.binding
 
+import android.os.Parcelable
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.databinding.ObservableField
@@ -7,6 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import java.util.*
+import kotlinx.android.parcel.Parcelize
 
 /**
  * <pre>
@@ -58,7 +60,8 @@ class MainViewModel : ViewModel() {
 
 }
 
-data class User(val name: String, val account: String)
+@Parcelize
+data class User(val name: String, val account: String) : Parcelable
 
 class Account : BaseObservable() {
 

@@ -24,7 +24,7 @@
 **2020-12-15（V1.0.3）**
 
 * 添加了 DataBinding 在 Dialog 中的使用，  `by databind(R.layout.dialog_data_binding)` 或者 `by databind(R.layout.dialog_data_binding, lifecycle)` 
-* 添加 Activity 生命周期监听（当继承 Activity 且 Build.VERSION.SDK_INT < Build.VERSION_CODES.Q 时触发）
+* 处理了 `VERSION.SDK_INT < VERSION_CODES.Q` 和 `VERSION.SDK_INT >= VERSION_CODES.Q`，处于 `onDestroyed()` 时会自动销毁数据
 
 **2020-12-14:**
 

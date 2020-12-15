@@ -21,6 +21,11 @@
 
 ### 更新记录
 
+**2020-12-15（V1.0.3）**
+
+* 添加了 DataBinding 在 Dialog 中的使用，  `by databind(R.layout.dialog_data_binding)` 或者 `by databind(R.layout.dialog_data_binding, lifecycle)` 
+* 添加 Activity 生命周期监听（当继承 Activity 且 Build.VERSION.SDK_INT < Build.VERSION_CODES.Q 时触发）
+
 **2020-12-14:**
 
 * Demo 增加 DataBinding 示例
@@ -29,7 +34,7 @@
 
 **2020-12-13（V1.0.1）**
 
-* 添加了 ViewBinding 在 Dialog 中的使用，  `by viewbind` 或者 `by viewbind(lifecycle)` 
+* 添加了 ViewBinding 在 Dialog 中的使用，  `by viewbind()` 或者 `by viewbind(lifecycle)` 
 
 **2020-12-12（V1.0.0）**
 
@@ -54,22 +59,23 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.0.1'
+    implementation 'com.hi-dhl:binding:1.0.2'
 }
 ```
 
 
 ## Usage
 
-在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 中使用方式如下所示。
+* 在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 中使用，继承对应的类添加 `by viewbind()` 即可如下所示。
 
 ```
 class MainActivity : AppCompatActivity() {
 
     // DataBinding
     val binding: ActivityMainBinding by databind(R.layout.activity_main)
+    
     // ViewBinding
-    // val binding: ActivityMainBinding by viewbind()
+    val binding: ActivityMainBinding by viewbind()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,14 +86,16 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-在 `Fragment` 中使用方式如下所示。
+* 在 `Fragment` 中使用方式如下所示。
 
 ```
 class MainFragment : Fragment(R.layout.fragment_main) {
+    
     // DataBinding
   	val binding: FragmentMainBinding by databind()
+    
     // ViewBinding
-  	// val binding: FragmentMainBinding by viewbind()
+  	 val binding: FragmentMainBinding by viewbind()
   
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -96,11 +104,15 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 }
 ```
 
-在 `Dialog` 中使用方式如下所示。
+* 在 `Dialog` 中使用方式如下所示。
 
 ```
 class AppDialog(context: Context) : Dialog(context, R.style.AppDialog) {
 
+    // DataBinding
+    val binding: DialogAppBinding by databind(R.layout.dialog_data_binding)
+    
+    // ViewBinding
     val binding: DialogAppBinding by viewbind()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -115,6 +127,10 @@ class AppDialog(context: Context) : Dialog(context, R.style.AppDialog) {
 ```
 class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style.AppDialog) {
 
+    // DataBinding 监听生命周期
+    val binding: DialogAppBinding by databind(R.layout.dialog_data_binding, lifecycle)
+    
+    // ViewBinding 监听生命周期
     val binding: DialogAppBinding by viewbind(lifecycle)
 
     override fun onCreate(savedInstanceState: Bundle?) {

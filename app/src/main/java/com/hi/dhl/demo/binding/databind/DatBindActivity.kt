@@ -39,16 +39,18 @@ class DatBindActivity : AppCompatActivity(), View.OnClickListener {
 
 
     override fun onClick(v: View) {
+        val lifecycle = this.lifecycle
         with(binding) {
             when (v) {
                 btnBindRandom -> viewModel.generateTimber()
                 btnBindAdapter -> viewModel.bindUser()
+                btnDialog -> DataBindDialog(this@DatBindActivity, lifecycle).show()
             }
         }
     }
 
     private fun getViews() = with(binding) {
-        arrayListOf<View>(btnBindRandom, btnBindAdapter)
+        arrayListOf<View>(btnBindRandom, btnBindAdapter, btnDialog)
     }
 
     companion object {

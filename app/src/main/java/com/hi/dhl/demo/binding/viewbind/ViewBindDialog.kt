@@ -1,4 +1,4 @@
-package com.hi.dhl.demo.binding
+package com.hi.dhl.demo.binding.viewbind
 
 import android.app.Dialog
 import android.content.Context
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Window
 import androidx.lifecycle.Lifecycle
 import com.hi.dhl.binding.viewbind
+import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databinding.DialogAppBinding
 
 /**
@@ -15,13 +16,13 @@ import com.hi.dhl.demo.binding.databinding.DialogAppBinding
  *     desc  :
  * </pre>
  */
-class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style.AppDialog) {
+class ViewBindDialog(context: Context, lifecycle: Lifecycle) : Dialog(context, R.style.AppDialog) {
 
     val binding: DialogAppBinding by viewbind(lifecycle)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        binding.apply { result.setText("DialogAppBinding") }
+        binding.apply { result.setText("ViewBindDialog") }
     }
 }

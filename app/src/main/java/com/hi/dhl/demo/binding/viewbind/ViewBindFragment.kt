@@ -1,13 +1,11 @@
 package com.hi.dhl.demo.binding.viewbind
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.hi.dhl.binding.viewbind
-import com.hi.dhl.demo.binding.AppDialog
 import com.hi.dhl.demo.binding.R
-import com.hi.dhl.demo.binding.databinding.FragmentMainBinding
+import com.hi.dhl.demo.binding.databinding.FragmentViewBindBinding
 import com.hi.dhl.demo.binding.databinding.LayoutItem1Binding
 
 /**
@@ -17,15 +15,10 @@ import com.hi.dhl.demo.binding.databinding.LayoutItem1Binding
  *     desc  :
  * </pre>
  */
-class MainFragment : Fragment(R.layout.fragment_main) {
+class ViewBindFragment : Fragment(R.layout.fragment_view_bind) {
 
 
-    val binding: FragmentMainBinding by viewbind()
-
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-    }
+    val binding: FragmentViewBindBinding by viewbind()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,7 +27,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             tvTitle.setText("直接使用布局中的控件")
             include.includeTvTitle.setText("使用 include 布局中的控件, 不包含 merge")
             btnDialog.setOnClickListener {
-                this@MainFragment.context?.let { ctx -> AppDialog(ctx, lifecycle).show() }
+                this@ViewBindFragment.context?.let { ctx -> ViewBindDialog(ctx, lifecycle).show() }
             }
         }
 

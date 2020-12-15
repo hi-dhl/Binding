@@ -27,7 +27,7 @@ class ViewBindActivity : AppCompatActivity() {
 
     private fun addFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, MainFragment())
+            .replace(R.id.container, ViewBindFragment())
             .commit()
     }
 

@@ -6,8 +6,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Lifecycle
-import com.hi.dhl.binding.addObserver
-import kotlin.properties.ReadOnlyProperty
+import com.hi.dhl.binding.base.DialogDelegate
 import kotlin.reflect.KProperty
 
 /**
@@ -17,18 +16,12 @@ import kotlin.reflect.KProperty
  *     desc  :
  * </pre>
  */
-class DialogDataBindingDelegate<T : ViewDataBinding>(
-    val classes: Class<T>? = null,
+class DialogDataBinding<T : ViewDataBinding>(
+    val classes: Class<T>,
     val inflater: LayoutInflater,
     @LayoutRes val resId: Int,
     lifecycle: Lifecycle? = null
-) : ReadOnlyProperty<Dialog, T> {
-
-    private var viewBinding: T? = null
-
-    init {
-        lifecycle?.addObserver { destroyed() }
-    }
+) : DialogDelegate<T>(lifecycle) {
 
     override fun getValue(thisRef: Dialog, property: KProperty<*>): T {
         return viewBinding?.run {
@@ -39,14 +32,8 @@ class DialogDataBindingDelegate<T : ViewDataBinding>(
             val bind = DataBindingUtil.bind<T>(inflater.inflate(resId, null))!! as T
             thisRef.setContentView(bind.root)
             return bind.apply { viewBinding = this }
-
         }
 
     }
-
-    private fun destroyed() {
-        viewBinding = null
-    }
-
 
 }

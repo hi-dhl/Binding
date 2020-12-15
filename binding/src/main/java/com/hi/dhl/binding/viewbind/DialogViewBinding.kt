@@ -3,9 +3,8 @@ package com.hi.dhl.binding.viewbind
 import android.app.Dialog
 import androidx.lifecycle.Lifecycle
 import androidx.viewbinding.ViewBinding
-import com.hi.dhl.binding.addObserver
+import com.hi.dhl.binding.base.DialogDelegate
 import com.hi.dhl.binding.inflateMethod
-import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 /**
@@ -15,17 +14,12 @@ import kotlin.reflect.KProperty
  *     desc  :
  * </pre>
  */
-class DialogBindingDelegate<T : ViewBinding>(
+class DialogViewBinding<T : ViewBinding>(
     classes: Class<T>,
     lifecycle: Lifecycle? = null
-) : ReadOnlyProperty<Dialog, T> {
+) : DialogDelegate<T>(lifecycle) {
 
-    private var viewBinding: T? = null
     private var layoutInflater = classes.inflateMethod()
-
-    init {
-        lifecycle?.addObserver { destroyed() }
-    }
 
     override fun getValue(thisRef: Dialog, property: KProperty<*>): T {
         return viewBinding?.run {
@@ -38,10 +32,6 @@ class DialogBindingDelegate<T : ViewBinding>(
             return bind.apply { viewBinding = this }
         }
 
-    }
-
-    private fun destroyed() {
-        viewBinding = null
     }
 
 }

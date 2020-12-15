@@ -3,8 +3,7 @@ package com.hi.dhl.binding.databind
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.hi.dhl.binding.addObserver
-import kotlin.properties.ReadOnlyProperty
+import com.hi.dhl.binding.base.FragmentDelegate
 import kotlin.reflect.KProperty
 
 /**
@@ -15,15 +14,9 @@ import kotlin.reflect.KProperty
  * </pre>
  */
 
-class FragmentBindingDelegate<T : ViewDataBinding>(
+class FragmenDataBinding<T : ViewDataBinding>(
     fragment: Fragment
-) : ReadOnlyProperty<Fragment, T> {
-
-    private var viewBinding: T? = null
-
-    init {
-        fragment.lifecycle.addObserver { destroyed() }
-    }
+) : FragmentDelegate<T>(fragment) {
 
     override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
         return viewBinding?.run {
@@ -31,12 +24,8 @@ class FragmentBindingDelegate<T : ViewDataBinding>(
 
         } ?: let {
 
-            val bind: T = DataBindingUtil.bind(thisRef.view!!)!!
+            val bind: T = DataBindingUtil.bind(thisRef.requireView())!!
             return bind.apply { viewBinding = this }
         }
-    }
-
-    private fun destroyed() {
-        viewBinding = null
     }
 }

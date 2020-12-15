@@ -4,8 +4,8 @@ import android.app.Activity
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.FragmentActivity
-import androidx.viewbinding.ViewBinding
 import com.hi.dhl.binding.addObserver
 import com.hi.dhl.binding.registerActivityLifecycleCallbacks
 import kotlin.properties.ReadOnlyProperty
@@ -19,7 +19,7 @@ import kotlin.reflect.KProperty
  * </pre>
  */
 
-class ActivityBindingDelegate<T : ViewBinding>(
+class ActivityBindingDelegate<T : ViewDataBinding>(
     activity: Activity,
     @LayoutRes val resId: Int,
 ) : ReadOnlyProperty<Activity, T> {

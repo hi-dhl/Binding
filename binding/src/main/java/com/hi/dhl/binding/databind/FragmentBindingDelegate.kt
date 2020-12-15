@@ -1,8 +1,8 @@
 package com.hi.dhl.binding.databind
 
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
 import com.hi.dhl.binding.addObserver
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
@@ -15,7 +15,7 @@ import kotlin.reflect.KProperty
  * </pre>
  */
 
-class FragmentBindingDelegate<T : ViewBinding>(
+class FragmentBindingDelegate<T : ViewDataBinding>(
     fragment: Fragment
 ) : ReadOnlyProperty<Fragment, T> {
 

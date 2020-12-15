@@ -16,7 +16,7 @@ import kotlin.reflect.KProperty
  */
 
 class ActivityDataBinding<T : ViewDataBinding>(
-    activity: Activity,
+    val activity: Activity,
     @LayoutRes val resId: Int,
 ) : ActivityDelegate<T>(activity) {
 
@@ -25,7 +25,10 @@ class ActivityDataBinding<T : ViewDataBinding>(
             this
 
         } ?: let {
+            // 当继承 Activity 且 Build.VERSION.SDK_INT < Build.VERSION_CODES.Q 时触发
+            addLifecycleFragment(activity)
 
+            // 获取 ViewDataBinding
             val bind: T = DataBindingUtil.setContentView(thisRef, resId)
             return bind.apply { viewBinding = this }
         }

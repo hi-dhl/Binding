@@ -1,7 +1,9 @@
 package com.hi.dhl.binding
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
+import android.app.Fragment
 import android.os.Build
 import android.os.Bundle
 import androidx.lifecycle.Lifecycle
@@ -66,5 +68,21 @@ class LifecycleCallbacks(val destroyed: () -> Unit) :
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             activity.unregisterActivityLifecycleCallbacks(this)
         }
+    }
+}
+
+class LifecycleFragment : Fragment {
+    lateinit var destroyed: () -> Unit
+
+    constructor()
+
+    @SuppressLint("ValidFragment")
+    constructor(destroyed: () -> Unit) : this() {
+        this.destroyed = destroyed
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        destroyed()
     }
 }

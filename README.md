@@ -7,10 +7,10 @@
 </p>
 </p>
 
-<p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/viewBinding3.001.png"> 图例1</a> | <a href="http://img.hi-dhl.com/viewbinding.001.png"> 图例2</a></p>
+<p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/vbdb.png"> 图例1</a> | <a href="http://img.hi-dhl.com/viewbinding.001.png"> 图例2</a></p>
 
 <p align="center">
-<image src="http://img.hi-dhl.com/viewBinding3.001.png" width = 600px/>
+<image src="http://img.hi-dhl.com/vbdb.png" width = 600px/>
 </p>
 
 <p align="center">
@@ -24,7 +24,8 @@
 **2020-12-15（V1.0.3）**
 
 * 添加了 DataBinding 在 Dialog 中的使用，  `by databind(R.layout.dialog_data_binding)` 或者 `by databind(R.layout.dialog_data_binding, lifecycle)` 
-* 处理了 `VERSION.SDK_INT < VERSION_CODES.Q` 和 `VERSION.SDK_INT >= VERSION_CODES.Q`，处于 `onDestroyed()` 时会自动销毁数据
+* 处理了 `VERSION.SDK_INT < VERSION_CODES.Q` 和 `VERSION.SDK_INT >= VERSION_CODES.Q` 生命周期问题，处于 `onDestroyed()` 时会自动销毁数据
+* 最低 SDK 版本降低至 14
 
 **2020-12-14:**
 
@@ -137,6 +138,15 @@ class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style
         super.onCreate(savedInstanceState)
         binding.apply { result.setText("DialogAppBinding") }
     }
+}
+```
+
+### 混淆
+
+```
+-keepclassmembers class ** implements androidx.viewbinding.ViewBinding {
+    public static ** bind(***);
+    public static ** inflate(***);
 }
 ```
 

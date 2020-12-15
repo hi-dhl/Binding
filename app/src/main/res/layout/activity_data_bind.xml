@@ -26,9 +26,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_40dp"
             android:gravity="center_horizontal"
+            android:text="演示 DataBinding 常用的几种用法"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_16sp"
-            android:text="演示 DataBinding 常用的几种用法" />
+            android:textSize="@dimen/text_size_16sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnBindRandom"

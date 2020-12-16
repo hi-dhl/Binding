@@ -26,7 +26,7 @@ Binding 未来的规划，提供通用的解决方案，因技术的迭代更新
 
 同时也会陆续完善 DataBinding 和 ViewBinding 更多实战案例。
 
-如果这个仓库对你有帮助，请在仓库右上角帮我 star 一下，感谢你的支持，欢迎你加入并支持 [stargazers](https://github.com/hi-dhl/Binding/stargazers) 项目，同时也欢迎你提交 PR ❤️❤️❤️
+如果这个仓库对你有帮助，请在仓库右上角帮我 star 一下，非常感谢你的支持，同时也欢迎你提交 PR ❤️❤️❤️
 
 ### 更新记录
 

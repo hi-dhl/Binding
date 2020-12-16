@@ -20,9 +20,9 @@
 
 ## 关于 Binding
 
-Binding 目的 DataBinding 和 ViewBinding 的使用， 只需要一行代码即可实现 DataBinding 和 ViewBinding。
+Binding 目的提供通用的 `findViewById` 解决方案，目前 Binding 简化 DataBinding 和 ViewBinding 的使用， 只需要一行代码即可实现 DataBinding 和 ViewBinding。
 
-Binding 未来的规划，提供通用的解决方案，因技术的迭代更新从 butterknife 、 DataBinding 、 Kotlin 合成方法（Synthetic 视图）到现在 ViewBinding 未来也有可能出现新的技术，无论技术怎么变化，只需要更新 Binding ，对外的使用保持不变，这样可以将成本降低到最小。
+Binding 未来的规划，提供通用的解决方案，因技术的迭代更新从 butterknife 、 DataBinding 、 Kotlin 合成方法（Synthetic 视图）到现在 ViewBinding 未来也有可能出现新的技术，无论技术怎么变化，只需要更新 Binding ，对外的使用保持不变。
 
 同时也会陆续完善 DataBinding 和 ViewBinding 更多实战案例。
 

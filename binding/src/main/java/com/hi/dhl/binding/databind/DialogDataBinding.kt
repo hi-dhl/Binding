@@ -21,7 +21,7 @@ class DialogDataBinding<T : ViewDataBinding>(
     val inflater: LayoutInflater,
     @LayoutRes val resId: Int,
     lifecycle: Lifecycle? = null,
-    private val block: (ViewDataBinding.() -> Unit)? = null
+    private val block: (T.() -> Unit)? = null
 ) : DialogDelegate<T>(lifecycle) {
 
     override fun getValue(thisRef: Dialog, property: KProperty<*>): T {

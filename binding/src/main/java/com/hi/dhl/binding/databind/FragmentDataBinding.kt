@@ -14,9 +14,9 @@ import kotlin.reflect.KProperty
  * </pre>
  */
 
-class FragmentDataBinding<T : ViewDataBinding>(
-        fragment: Fragment,
-        private val block: (ViewDataBinding.() -> Unit)? = null
+class FragmenDataBinding<T : ViewDataBinding>(
+    fragment: Fragment,
+    private val block: (T.() -> Unit)? = null
 ) : FragmentDelegate<T>(fragment) {
 
     override fun getValue(thisRef: Fragment, property: KProperty<*>): T {

@@ -18,7 +18,7 @@ import kotlin.reflect.KProperty
 class ActivityDataBinding<T : ViewDataBinding>(
     val activity: Activity,
     @LayoutRes val resId: Int,
-    private val block: (ViewDataBinding.() -> Unit)? = null
+    private val block: (T.() -> Unit)? = null
 ) : ActivityDelegate<T>(activity) {
 
     override fun getValue(thisRef: Activity, property: KProperty<*>): T {

@@ -14,7 +14,8 @@ import kotlin.reflect.KProperty
  * </pre>
  */
 class ViewHolderDataBinding<T : ViewDataBinding>(
-    classes: Class<T>
+    classes: Class<T>,
+    private var block: (T.() -> Unit)? = null
 ) : ReadOnlyProperty<RecyclerView.ViewHolder, T> {
 
     private var viewBinding: T? = null
@@ -25,7 +26,12 @@ class ViewHolderDataBinding<T : ViewDataBinding>(
         } ?: let {
 
             val bind = DataBindingUtil.bind<T>(thisRef.itemView) as T
-            bind.apply { viewBinding = this }
+            val value = block
+            bind.apply {
+                viewBinding = this
+                value?.invoke(this)
+                block = null
+            }
         }
     }
 

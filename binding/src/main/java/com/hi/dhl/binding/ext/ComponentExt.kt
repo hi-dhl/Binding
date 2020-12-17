@@ -69,6 +69,9 @@ inline fun <reified T : ViewDataBinding> Dialog.databind(
 inline fun <reified T : ViewDataBinding> RecyclerView.ViewHolder.databind() =
     ViewHolderDataBinding(T::class.java)
 
+inline fun <reified T : ViewDataBinding> RecyclerView.ViewHolder.databind(noinline block: (T.() -> Unit)) =
+    ViewHolderDataBinding(T::class.java, block)
+
 inline fun <reified T : ViewBinding> Activity.viewbind() =
     com.hi.dhl.binding.viewbind.ActivityViewBinding(T::class.java, this)
 

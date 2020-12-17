@@ -14,7 +14,7 @@ import kotlin.reflect.KProperty
  * </pre>
  */
 
-class FragmenDataBinding<T : ViewDataBinding>(
+class FragmentDataBinding<T : ViewDataBinding>(
     fragment: Fragment,
     private var block: (T.() -> Unit)? = null
 ) : FragmentDelegate<T>(fragment) {

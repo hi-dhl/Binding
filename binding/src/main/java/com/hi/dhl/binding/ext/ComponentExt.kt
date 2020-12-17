@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.hi.dhl.binding.databind.ActivityDataBinding
 import com.hi.dhl.binding.databind.DialogDataBinding
-import com.hi.dhl.binding.databind.FragmenDataBinding
+import com.hi.dhl.binding.databind.FragmentDataBinding
 import com.hi.dhl.binding.databind.ViewHolderDataBinding
 import com.hi.dhl.binding.viewbind.DialogViewBinding
 import com.hi.dhl.binding.viewbind.ViewHolderViewBinding
@@ -25,7 +25,7 @@ import com.hi.dhl.binding.viewbind.ViewHolderViewBinding
 
 
 inline fun <reified T : ViewDataBinding> Fragment.databind() =
-    FragmenDataBinding<T>(this)
+    FragmentDataBinding<T>(this)
 
 inline fun <reified T : ViewDataBinding> Activity.databind(@LayoutRes resId: Int) =
     ActivityDataBinding<T>(this, resId)
@@ -39,7 +39,7 @@ inline fun <reified T : ViewDataBinding> Dialog.databind(
 )
 
 inline fun <reified T : ViewDataBinding> Fragment.databind(noinline block: (T.() -> Unit)? = null) =
-    FragmenDataBinding<T>(this, block)
+    FragmentDataBinding<T>(this, block)
 
 inline fun <reified T : ViewDataBinding> Activity.databind(
     @LayoutRes resId: Int,

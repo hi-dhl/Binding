@@ -20,7 +20,8 @@ class DialogDataBinding<T : ViewDataBinding>(
     val classes: Class<T>,
     val inflater: LayoutInflater,
     @LayoutRes val resId: Int,
-    lifecycle: Lifecycle? = null
+    lifecycle: Lifecycle? = null,
+    private val block: (ViewDataBinding.() -> Unit)? = null
 ) : DialogDelegate<T>(lifecycle) {
 
     override fun getValue(thisRef: Dialog, property: KProperty<*>): T {
@@ -31,7 +32,10 @@ class DialogDataBinding<T : ViewDataBinding>(
 
             val bind = DataBindingUtil.bind<T>(inflater.inflate(resId, null))!! as T
             thisRef.setContentView(bind.root)
-            return bind.apply { viewBinding = this }
+            return bind.apply {
+                viewBinding = this
+                block?.invoke(this)
+            }
         }
 
     }

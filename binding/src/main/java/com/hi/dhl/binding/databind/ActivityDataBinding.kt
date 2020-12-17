@@ -18,6 +18,7 @@ import kotlin.reflect.KProperty
 class ActivityDataBinding<T : ViewDataBinding>(
     val activity: Activity,
     @LayoutRes val resId: Int,
+    private val block: (ViewDataBinding.() -> Unit)? = null
 ) : ActivityDelegate<T>(activity) {
 
     override fun getValue(thisRef: Activity, property: KProperty<*>): T {
@@ -30,7 +31,10 @@ class ActivityDataBinding<T : ViewDataBinding>(
 
             // 获取 ViewDataBinding
             val bind: T = DataBindingUtil.setContentView(thisRef, resId)
-            return bind.apply { viewBinding = this }
+            return bind.apply {
+                viewBinding = this
+                block?.invoke(this)
+            }
         }
     }
 

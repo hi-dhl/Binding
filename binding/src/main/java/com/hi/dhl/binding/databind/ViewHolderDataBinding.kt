@@ -1,6 +1,5 @@
 package com.hi.dhl.binding.databind
 
-import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
@@ -14,21 +13,23 @@ import kotlin.reflect.KProperty
  *     desc  :
  * </pre>
  */
-class ViewHolderBinding<T : ViewDataBinding>(
-    private val classes: Class<T>,
-    private val view: View
+class ViewHolderDataBinding<T : ViewDataBinding>(
+    classes: Class<T>
 ) : ReadOnlyProperty<RecyclerView.ViewHolder, T> {
 
-    private var binding: T? = null
+    private var viewBinding: T? = null
 
     override fun getValue(thisRef: RecyclerView.ViewHolder, property: KProperty<*>): T {
-        return binding?.run {
+        return viewBinding?.run {
             this
         } ?: let {
-            val bind = DataBindingUtil.bind<T>(view) as T
 
-            bind.apply { binding = this }
+            val bind = DataBindingUtil.bind<T>(thisRef.itemView) as T
+            bind.apply { viewBinding = this }
         }
     }
 
+    private fun destroyed() {
+        viewBinding = null
+    }
 }

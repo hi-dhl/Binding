@@ -2,7 +2,6 @@ package com.hi.dhl.binding
 
 import android.app.Activity
 import android.app.Dialog
-import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -12,8 +11,9 @@ import androidx.viewbinding.ViewBinding
 import com.hi.dhl.binding.databind.ActivityDataBinding
 import com.hi.dhl.binding.databind.DialogDataBinding
 import com.hi.dhl.binding.databind.FragmenDataBinding
-import com.hi.dhl.binding.databind.ViewHolderBinding
+import com.hi.dhl.binding.databind.ViewHolderDataBinding
 import com.hi.dhl.binding.viewbind.DialogViewBinding
+import com.hi.dhl.binding.viewbind.ViewHolderViewBinding
 
 /**
  * <pre>
@@ -66,8 +66,8 @@ inline fun <reified T : ViewDataBinding> Dialog.databind(
     lifecycle = lifecycle
 )
 
-inline fun <reified T : ViewDataBinding> RecyclerView.ViewHolder.databind(view: View) =
-    ViewHolderBinding(T::class.java, view)
+inline fun <reified T : ViewDataBinding> RecyclerView.ViewHolder.databind() =
+    ViewHolderDataBinding(T::class.java)
 
 inline fun <reified T : ViewBinding> Activity.viewbind() =
     com.hi.dhl.binding.viewbind.ActivityViewBinding(T::class.java, this)
@@ -86,3 +86,6 @@ inline fun <reified T : ViewBinding> Dialog.viewbind() =
 
 inline fun <reified T : ViewBinding> Dialog.viewbind(lifecycle: Lifecycle) =
     DialogViewBinding(T::class.java, lifecycle)
+
+inline fun <reified T : ViewBinding> RecyclerView.ViewHolder.viewbind() =
+    ViewHolderViewBinding(T::class.java)

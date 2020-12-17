@@ -11,7 +11,7 @@ import com.hi.dhl.demo.binding.viewbind.ViewBindActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    val binding: ActivityMainBinding by viewbind()
+    private val binding: ActivityMainBinding by viewbind()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

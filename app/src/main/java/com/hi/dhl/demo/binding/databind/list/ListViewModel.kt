@@ -12,14 +12,15 @@ import androidx.lifecycle.ViewModel
  * </pre>
  */
 class ListViewModel : ViewModel() {
+
     private val _liveData = MutableLiveData<List<Product>>()
     val liveData: LiveData<List<Product>> = _liveData
 
     init {
         val data = mutableListOf<Product>()
-        (1..30).forEach {
+        (1..15).forEach {
             val id = it
-            val name = ("ByteCode ${it}")
+            val name = "公众号：ByteCode，这是通过 DataBinding 绑定的 item"
             data.add(Product(id, name))
         }
         _liveData.value = data

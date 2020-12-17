@@ -42,7 +42,7 @@ android {
 dependencies {
     ext.fragment = "1.2.5"
     ext.koin_version = "2.1.5"
-    ext.remote = true
+    ext.remote = false
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
@@ -58,7 +58,6 @@ dependencies {
     } else {
         implementation project(':binding')
     }
-
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

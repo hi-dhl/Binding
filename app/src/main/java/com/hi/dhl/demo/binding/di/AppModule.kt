@@ -1,6 +1,7 @@
 package com.hi.dhl.demo.binding.di
 
 import com.hi.dhl.demo.binding.MainViewModel
+import com.hi.dhl.demo.binding.databind.list.ListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -13,6 +14,7 @@ import org.koin.dsl.module
  */
 val viewModelsModule = module {
     viewModel { MainViewModel() }
+    viewModel { ListViewModel() }
 }
 
 val appModules = listOf(viewModelsModule)

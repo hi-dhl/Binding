@@ -27,6 +27,11 @@
         <activity
             android:name=".viewbind.ViewBindActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".databind.list.DataBindRecycleActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

@@ -92,5 +92,12 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_20dp"
             android:text="在 Dialog 当中的使用" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRecycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:text="在 RecycleView 当中的使用" />
     </LinearLayout>
 </layout>

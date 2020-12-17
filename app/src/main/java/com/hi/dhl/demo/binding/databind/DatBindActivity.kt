@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.hi.dhl.binding.databind
 import com.hi.dhl.demo.binding.MainViewModel
 import com.hi.dhl.demo.binding.R
+import com.hi.dhl.demo.binding.databind.list.DataBindRecycleActivity
 import com.hi.dhl.demo.binding.databinding.ActivityDataBindBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -45,12 +46,13 @@ class DatBindActivity : AppCompatActivity(), View.OnClickListener {
                 btnBindRandom -> viewModel.generateTimber()
                 btnBindAdapter -> viewModel.bindUser()
                 btnDialog -> DataBindDialog(this@DatBindActivity, lifecycle).show()
+                btnRecycle -> DataBindRecycleActivity.startActivity(this@DatBindActivity)
             }
         }
     }
 
     private fun getViews() = with(binding) {
-        arrayListOf<View>(btnBindRandom, btnBindAdapter, btnDialog)
+        arrayListOf<View>(btnBindRandom, btnBindAdapter, btnDialog, btnRecycle)
     }
 
     companion object {

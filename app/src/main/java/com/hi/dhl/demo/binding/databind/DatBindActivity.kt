@@ -25,6 +25,14 @@ class DatBindActivity : AppCompatActivity(), View.OnClickListener {
 
     val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind)
 
+    // 第二种用法 或者通过下列方式绑定数据， 所有使用 DataBinding 绑定的地方都可以使用这种方式
+//    val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
+//        val account = Account()
+//        account.name = "test"
+//        this.account = account
+//    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(binding) {

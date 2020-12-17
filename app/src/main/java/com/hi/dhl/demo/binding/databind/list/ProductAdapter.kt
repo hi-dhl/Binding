@@ -22,6 +22,11 @@ import com.hi.dhl.demo.binding.databinding.RecycleItemProductHeaderBinding
  * </pre>
  */
 
+/**
+ *  这是 DataBinging 和 ViewBinding在 Adapter 中的使用例子，
+ *  通过扩展 RecyclerView.ViewHolder 来使用 DataBinding 和 ViewBinding，
+ *  即所有与 RecyclerView.ViewHolder 相关的 Adapter 都可以使用（ListAdapter、PagingDataAdapter、RecyclerView.Adapter 等等）
+ */
 class ProductAdapter : ListAdapter<Product, RecyclerView.ViewHolder>(Product.CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

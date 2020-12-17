@@ -7,14 +7,14 @@
 </p>
 </p>
 
-<p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/vbdb.png"> 图例1</a> | <a href="http://img.hi-dhl.com/viewbinding.001.png"> 图例2</a></p>
+<p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/vbdb.png"> 图例1</a> | <a href="http://img.hi-dhl.com/ViewBinding4.001.png"> 图例2</a></p>
 
 <p align="center">
 <image src="http://img.hi-dhl.com/vbdb.png" width = 600px/>
 </p>
 
 <p align="center">
-<image src="http://img.hi-dhl.com/ViewBinding2.png" width = 600px/>
+<image src="http://img.hi-dhl.com/ViewBinding4.001.png" width = 600px/>
 </p>
 
 
@@ -30,29 +30,15 @@ Kotlin 合成方法（Synthetic 视图）比 ViewBinding 方便这么多，为�
 
 **如果这个仓库对你有帮助，请在仓库右上角帮我 star 一下，非常感谢你的支持，同时也欢迎你提交 PR** ❤️❤️❤️
 
-### 更新记录
 
-**2020-12-15（V1.0.3）**
+**[Binding](https://github.com/hi-dhl/Binding) 具有以下优点：**
 
-* 添加了 DataBinding 在 Dialog 中的使用，  `by databind(R.layout.dialog_data_binding)` 或者 `by databind(R.layout.dialog_data_binding, lifecycle)` 
-* 处理了 `VERSION.SDK_INT < VERSION_CODES.Q` 和 `VERSION.SDK_INT >= VERSION_CODES.Q` 生命周期问题，处于 `onDestroyed()` 时会自动销毁数据
-* 最低 SDK 版本降低至 14
+* 可以在  `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 、 `ListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 中的使用 DataBinding 或者 ViewBinding
+* 简单的 API 只需要一行代码即可实现 DataBinding 或者 ViewBinding
+* 避免大量的模板代码
+* 避免内存泄露，具有生命周期感知能力，当生命周期处于 `onDestroyed()` 时会自动销毁数据
 
-**2020-12-14:**
 
-* Demo 增加 DataBinding 示例
-* Demo 增加 ViewBinding 示例
-* Demo 增加 kotlin-parcelize 示例
-
-**2020-12-13（V1.0.1）**
-
-* 添加了 ViewBinding 在 Dialog 中的使用，  `by viewbind()` 或者 `by viewbind(lifecycle)` 
-
-**2020-12-12（V1.0.0）**
-
-* 添加 DataBinding 和 ViewBinding 在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 中的使用
-* 避免模板代码，只需要一行代码即可实现 DataBinding 或者 ViewBinding 
-* 当生命周期处于 `onDestroyed()` 时会自动销毁数据
 
 ## Download
 
@@ -69,14 +55,57 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.0.3'
+    implementation 'com.hi-dhl:binding:1.0.4'
 }
 ```
 
 
 ## Usage
 
-* 在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 中使用，继承对应的类添加 `by viewbind()` 即可如下所示。
+* 在 Adapter（ListAdapter、PagingDataAdapter、RecyclerView.Adapter 等等）中使用 DataBinding 和 ViewBinding，添加 `by viewbind()` 或者 `by databind()` 即可，示例如下所示，[查看详细示例](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
+
+```
+class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    
+    // 通过 DataBinding 绑定的 itemView
+    val binding: RecycleItemProductBinding by databind()
+
+    fun bindData(data: Product?, position: Int) {
+        binding.apply {
+            product = data
+            executePendingBindings()
+        }
+    }
+}
+
+class ProductViewHolderHeader(view: View) : RecyclerView.ViewHolder(view) {
+
+    // ViewBinding
+    val binding: RecycleItemProductHeaderBinding by viewbind()
+
+    fun bindData(data: Product?, position: Int) {
+        binding.apply {
+            name.text = "通过 ViewBinding 绑定的 head"
+        }
+    }
+}
+
+class ProductViewHolderFooter(view: View) : RecyclerView.ViewHolder(view) {
+    
+    // ViewBinding
+    val binding: RecycleItemProductFooterBinding by viewbind()
+
+    fun bindData(data: Product?, position: Int) {
+        binding.apply {
+            name.text = "通过 ViewBinding 绑定的 footer"
+        }
+    }
+}
+
+```
+
+
+* 在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 中使用，继承对应的类添加 `by viewbind()` 即可，示例如下所示。
 
 ```
 class MainActivity : AppCompatActivity() {
@@ -93,6 +122,22 @@ class MainActivity : AppCompatActivity() {
             textView.setText("Binding")
         }
     }
+}
+
+class MainActivity : Activity() {
+    // DataBinding
+    val binding: ActivityMainBinding by databind(R.layout.activity_main)
+    
+    // ViewBinding
+    val binding: ActivityMainBinding by viewbind()
+}
+
+class FragmentActivity : Activity() {
+    // DataBinding
+    val binding: ActivityMainBinding by databind(R.layout.activity_main)
+    
+    // ViewBinding
+    val binding: ActivityMainBinding by viewbind()
 }
 ```
 
@@ -150,6 +195,16 @@ class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style
 }
 ```
 
+* 扩展方法，支持 DataBinding 初始化的时候绑定数据，感谢 `@br3ant` 贡献，[查看详细示例](https://github.com/hi-dhl/Binding/blob/054aa169d8dd39023be55be589b67e8097702bd1/app/src/main/java/com/hi/dhl/demo/binding/databind/DatBindActivity.kt#L28-L33)
+
+```
+val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
+    val account = Account()
+    account.name = "test"
+    this.account = account
+}
+```
+
 ### 混淆
 
 ```
@@ -158,6 +213,46 @@ class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style
     public static ** inflate(***);
 }
 ```
+
+### 更新记录
+
+**2020-12-17（V1.0.4）**
+
+* 支持所有与 RecyclerView.ViewHolder 相关的 Adapter（ListAdapter、PagingDataAdapter、RecyclerView.Adapter 等等）使用 DataBinding 和 ViewBinding
+
+```
+class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    val binding: RecycleItemProductBinding by databind()
+}
+
+class ProductViewHolderHeader(view: View) : RecyclerView.ViewHolder(view) {
+    val binding: RecycleItemProductHeaderBinding by viewbind()
+}
+```
+
+* 支持通过 `by databind` 初始化，同时可以绑定数据，感谢 `@br3ant` 贡献，[查看详细示例](https://github.com/hi-dhl/Binding/blob/054aa169d8dd39023be55be589b67e8097702bd1/app/src/main/java/com/hi/dhl/demo/binding/databind/DatBindActivity.kt#L28-L33)
+
+**2020-12-15（V1.0.3）**
+
+* 添加了 DataBinding 在 Dialog 中的使用，  `by databind(R.layout.dialog_data_binding)` 或者 `by databind(R.layout.dialog_data_binding, lifecycle)` 
+* 处理了 `大于等于 Android 10.0` 和 `小于 Android 10.0` 生命周期问题，当处于 `onDestroyed()` 时会自动销毁数据
+* 最低 SDK 版本降低至 14
+
+**2020-12-14:**
+
+* Demo 增加 DataBinding 示例
+* Demo 增加 ViewBinding 示例
+* Demo 增加 kotlin-parcelize 示例
+
+**2020-12-13（V1.0.1）**
+
+* 添加了 ViewBinding 在 Dialog 中的使用，  `by viewbind()` 或者 `by viewbind(lifecycle)` 
+
+**2020-12-12（V1.0.0）**
+
+* 添加 DataBinding 和 ViewBinding 在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 中的使用
+* 避免模板代码，只需要一行代码即可实现 DataBinding 或者 ViewBinding 
+* 当生命周期处于 `onDestroyed()` 时会自动销毁数据
 
 ### 联系我
 

@@ -12,7 +12,9 @@ import com.hi.dhl.binding.databind.ActivityDataBinding
 import com.hi.dhl.binding.databind.DialogDataBinding
 import com.hi.dhl.binding.databind.FragmentDataBinding
 import com.hi.dhl.binding.databind.ViewHolderDataBinding
+import com.hi.dhl.binding.viewbind.ActivityViewBinding
 import com.hi.dhl.binding.viewbind.DialogViewBinding
+import com.hi.dhl.binding.viewbind.FragmentViewBinding
 import com.hi.dhl.binding.viewbind.ViewHolderViewBinding
 
 /**
@@ -73,16 +75,16 @@ inline fun <reified T : ViewDataBinding> RecyclerView.ViewHolder.databind(noinli
     ViewHolderDataBinding(T::class.java, block)
 
 inline fun <reified T : ViewBinding> Activity.viewbind() =
-    com.hi.dhl.binding.viewbind.ActivityViewBinding(T::class.java, this)
+    ActivityViewBinding(T::class.java, this)
 
 //inline fun <reified T : ViewBinding> AppCompatActivity.viewbind() =
-//    com.hi.dhl.binding.viewbind.ActivityBindingDelegate(T::class.java, this)
+//    ActivityViewBinding(T::class.java, this)
 //
 //inline fun <reified T : ViewBinding> FragmentActivity.viewbind() =
-//    com.hi.dhl.binding.viewbind.ActivityBindingDelegate(T::class.java, this)
+//    ActivityViewBinding(T::class.java, this)
 
 inline fun <reified T : ViewBinding> Fragment.viewbind() =
-    com.hi.dhl.binding.viewbind.FragmentViewBinding(T::class.java, this)
+    FragmentViewBinding(T::class.java, this)
 
 inline fun <reified T : ViewBinding> Dialog.viewbind() =
     DialogViewBinding(T::class.java)

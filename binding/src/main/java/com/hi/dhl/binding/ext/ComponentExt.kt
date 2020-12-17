@@ -35,6 +35,24 @@ inline fun <reified T : ViewDataBinding> Dialog.databind(
     resId = resId,
 )
 
+inline fun <reified T : ViewDataBinding> Fragment.databind(noinline block: (T.() -> Unit)? = null) =
+    FragmenDataBinding<T>(this, block)
+
+inline fun <reified T : ViewDataBinding> Activity.databind(
+    @LayoutRes resId: Int,
+    noinline block: (T.() -> Unit)? = null
+) = ActivityDataBinding<T>(this, resId, block)
+
+inline fun <reified T : ViewDataBinding> Dialog.databind(
+    @LayoutRes resId: Int,
+    noinline block: (T.() -> Unit)? = null
+) = DialogDataBinding(
+    classes = T::class.java,
+    inflater = this.layoutInflater,
+    resId = resId,
+    block = block,
+)
+
 inline fun <reified T : ViewDataBinding> Dialog.databind(
     @LayoutRes resId: Int,
     lifecycle: Lifecycle

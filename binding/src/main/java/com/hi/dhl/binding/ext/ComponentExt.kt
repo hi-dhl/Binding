@@ -27,7 +27,10 @@ import com.hi.dhl.binding.viewbind.ViewHolderViewBinding
 
 
 inline fun <reified T : ViewDataBinding> Fragment.databind() =
-    FragmentDataBinding<T>(this)
+    FragmentDataBinding<T>(T::class.java, this)
+
+inline fun <reified T : ViewDataBinding> Fragment.databind(noinline block: T.() -> Unit) =
+    FragmentDataBinding<T>(T::class.java, this, block = block)
 
 inline fun <reified T : ViewDataBinding> Activity.databind(@LayoutRes resId: Int) =
     ActivityDataBinding<T>(this, resId)
@@ -40,17 +43,14 @@ inline fun <reified T : ViewDataBinding> Dialog.databind(
     resId = resId,
 )
 
-inline fun <reified T : ViewDataBinding> Fragment.databind(noinline block: (T.() -> Unit)? = null) =
-    FragmentDataBinding<T>(this, block)
-
 inline fun <reified T : ViewDataBinding> Activity.databind(
     @LayoutRes resId: Int,
-    noinline block: (T.() -> Unit)? = null
+    noinline block: T.() -> Unit
 ) = ActivityDataBinding<T>(this, resId, block)
 
 inline fun <reified T : ViewDataBinding> Dialog.databind(
     @LayoutRes resId: Int,
-    noinline block: (T.() -> Unit)? = null
+    noinline block: T.() -> Unit
 ) = DialogDataBinding(
     classes = T::class.java,
     inflater = this.layoutInflater,

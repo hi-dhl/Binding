@@ -241,7 +241,7 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 ### 更新记录
 
-**2020-12-17（V1.0.5）**
+**2020-12-21（V1.0.5）**
 
 * 支持在 navigation fragment 中使用 DataBinding 和 ViewBinding，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
 

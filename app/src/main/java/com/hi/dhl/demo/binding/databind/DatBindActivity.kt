@@ -10,6 +10,7 @@ import com.hi.dhl.demo.binding.MainViewModel
 import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databind.list.DataBindRecycleActivity
 import com.hi.dhl.demo.binding.databinding.ActivityDataBindBinding
+import com.hi.dhl.demo.binding.navigation.NavigationActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -55,12 +56,13 @@ class DatBindActivity : AppCompatActivity(), View.OnClickListener {
                 btnBindAdapter -> viewModel.bindUser()
                 btnDialog -> DataBindDialog(this@DatBindActivity, lifecycle).show()
                 btnRecycle -> DataBindRecycleActivity.startActivity(this@DatBindActivity)
+                btnNavigation -> NavigationActivity.startActivity(this@DatBindActivity)
             }
         }
     }
 
     private fun getViews() = with(binding) {
-        arrayListOf<View>(btnBindRandom, btnBindAdapter, btnDialog, btnRecycle)
+        arrayListOf<View>(btnBindRandom, btnBindAdapter, btnDialog, btnRecycle, btnNavigation)
     }
 
     companion object {

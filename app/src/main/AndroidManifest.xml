@@ -32,6 +32,9 @@
             android:name=".databind.list.DataBindRecycleActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name="com.hi.dhl.demo.binding.navigation.NavigationActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

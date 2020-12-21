@@ -10,6 +10,7 @@ import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databind.list.DataBindRecycleActivity
 import com.hi.dhl.demo.binding.databinding.FragmentViewBindBinding
 import com.hi.dhl.demo.binding.databinding.LayoutItem1Binding
+import com.hi.dhl.demo.binding.navigation.NavigationActivity
 
 /**
  * <pre>
@@ -54,7 +55,7 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
     }
 
     private fun getViews() = with(binding) {
-        arrayListOf<View>(btnDialog, btnRecycle)
+        arrayListOf<View>(btnDialog, btnRecycle, btnNavigation)
     }
 
     override fun onClick(v: View) {
@@ -67,7 +68,8 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
                         ViewBindDialog(ctx, lifecycle).show()
                     }
                 }
-                btnRecycle -> DataBindRecycleActivity.startActivity(activity!!)
+                btnRecycle -> DataBindRecycleActivity.startActivity(requireActivity())
+                btnNavigation -> NavigationActivity.startActivity(requireActivity())
                 else -> {
                 }
             }

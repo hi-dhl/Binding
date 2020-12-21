@@ -33,8 +33,10 @@ Kotlin 合成方法（Synthetic 视图）比 ViewBinding 方便这么多，为�
 
 **[Binding](https://github.com/hi-dhl/Binding) 具有以下优点：**
 
-* 可以在  `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 、 `ListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 中的使用 DataBinding 或者 ViewBinding
 * 简单的 API 只需要一行代码即可实现 DataBinding 或者 ViewBinding
+* 支持在  `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 中的使用 DataBinding 或者 ViewBinding
+* 支持在 `ListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 中的使用 DataBinding 或者 ViewBinding
+* 支持在 navigation fragment 中使用 DataBinding 和 ViewBinding
 * 避免大量的模板代码
 * 避免内存泄露，具有生命周期感知能力，当生命周期处于 `onDestroyed()` 时会自动销毁数据
 

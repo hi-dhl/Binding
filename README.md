@@ -3,7 +3,7 @@
 <p align="center">
 一行代码实现 DataBinding 和 ViewBinding，欢迎 star<br/>
 <p align="center">
-<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
+<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <img src="https://img.shields.io/badge/jcenter-v1.0.5-519dd9.svg"/> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
 </p>
 </p>
 
@@ -55,7 +55,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.0.4'
+    implementation 'com.hi-dhl:binding:1.0.5'
 }
 ```
 
@@ -141,9 +141,32 @@ class FragmentActivity : Activity() {
 }
 ```
 
-* 在 `Fragment` 中使用方式如下所示。
+* 在 `Fragment` 中使用提供了两种方式，他们的初始化使用位置不同。
+    
+    * 方式一：在 `onCreateView` 中使用，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
+    * 方式二：在 `onViewCreated` 中使用，查看详细示例 [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) 和 [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
+
+**PS: 如果使用 `Navigaion` 作为新的 Fragment 管理框架，只能使用 `方式一`**，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation) 
 
 ```
+方式一：
+class MainFragment : Fragment(R.layout.fragment_main) {
+    
+    // DataBinding
+  	val binding: FragmentMainBinding by databind()
+    
+    // ViewBinding
+  	 val binding: FragmentMainBinding by viewbind()
+  
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return binding.root
+    }
+}
+
+方式二：
 class MainFragment : Fragment(R.layout.fragment_main) {
     
     // DataBinding
@@ -157,7 +180,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         binding.apply { textView.setText("Binding") }
     }
 }
-```
+``` 
 
 * 在 `Dialog` 中使用方式如下所示。
 
@@ -215,6 +238,30 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 ```
 
 ### 更新记录
+
+**2020-12-17（V1.0.5）**
+
+* 支持在 navigation fragment 中使用 DataBinding 和 ViewBinding，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
+
+```
+
+class MainFragment : Fragment(R.layout.fragment_main) {
+    
+    // DataBinding
+  	val binding: FragmentMainBinding by databind()
+    
+    // ViewBinding
+  	 val binding: FragmentMainBinding by viewbind()
+  
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return binding.root
+    }
+}
+
+```
 
 **2020-12-17（V1.0.4）**
 

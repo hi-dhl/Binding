@@ -7,14 +7,14 @@
 </p>
 </p>
 
-<p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/vbdb.png"> 图例1</a> | <a href="http://img.hi-dhl.com/ViewBinding4.001.png"> 图例2</a></p>
+<p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/vbdb.png"> 图例1</a> | <a href="http://img.hi-dhl.com/ViewBidnding.png"> 图例2</a></p>
 
 <p align="center">
 <image src="http://img.hi-dhl.com/vbdb.png" width = 600px/>
 </p>
 
 <p align="center">
-<image src="http://img.hi-dhl.com/ViewBinding4.001.png" width = 600px/>
+<image src="http://img.hi-dhl.com/ViewBidnding.png" width = 600px/>
 </p>
 
 
@@ -150,7 +150,7 @@ class FragmentActivity : Activity() {
 
 ```
 方式一：
-class MainFragment : Fragment(R.layout.fragment_main) {
+class FragmentNav1 : Fragment(R.layout.fragment_main) {
     
     // DataBinding
   	val binding: FragmentMainBinding by databind()
@@ -167,7 +167,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 }
 
 方式二：
-class MainFragment : Fragment(R.layout.fragment_main) {
+class FragmentNav1 : Fragment(R.layout.fragment_main) {
     
     // DataBinding
   	val binding: FragmentMainBinding by databind()
@@ -242,26 +242,6 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 **2020-12-17（V1.0.5）**
 
 * 支持在 navigation fragment 中使用 DataBinding 和 ViewBinding，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
-
-```
-
-class MainFragment : Fragment(R.layout.fragment_main) {
-    
-    // DataBinding
-  	val binding: FragmentMainBinding by databind()
-    
-    // ViewBinding
-  	 val binding: FragmentMainBinding by viewbind()
-  
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return binding.root
-    }
-}
-
-```
 
 **2020-12-17（V1.0.4）**
 

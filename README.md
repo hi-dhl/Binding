@@ -24,19 +24,18 @@ Binding 简化 DataBinding 和 ViewBinding 的使用， 只需要一行代码即
 
 Binding 未来的规划提供通用的 `findViewById` 解决方案，，因技术的迭代更新从 butterknife 、 DataBinding 、 Kotlin 合成方法（Synthetic 视图）到现在 ViewBinding ， 未来也有可能出现新的技术，无论技术怎么变化，只需要更新 Binding ，对外的使用保持不变。
 
-同时也会陆续完善 DataBinding 和 ViewBinding 更多实战案例。
-
 Kotlin 合成方法（Synthetic 视图）比 ViewBinding 方便这么多，为什么会被 Google 抛弃掉，请查看这篇文章 [Kotlin 插件的落幕，ViewBinding 的崛起](https://mp.weixin.qq.com/s/FxrRyXp9-VDdv-mfkzsIsA)。
 
-**如果这个仓库对你有帮助，请在仓库右上角帮我 star 一下，非常感谢你的支持，同时也欢迎你提交 PR** ❤️❤️❤️
+感谢小伙伴们的建议，目前 Binding 已经适配了大量的场景，同时也提供了很多 DataBinding 和 ViewBinding 实战案例，如果你在使用过程中遇到 Binding 不兼容的场景，欢迎提 issue，我会尽快解决
 
+**如果这个仓库对你有帮助，请在仓库右上角帮我 star 一下，非常感谢你的支持，同时也欢迎你提交 PR**  ❤️❤️❤️
 
 **[Binding](https://github.com/hi-dhl/Binding) 具有以下优点：**
 
 * 简单的 API 只需要一行代码即可实现 DataBinding 或者 ViewBinding
 * 支持在  `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 中的使用 DataBinding 或者 ViewBinding
 * 支持在 `ListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 中的使用 DataBinding 或者 ViewBinding
-* 支持在 navigation fragment 中使用 DataBinding 和 ViewBinding
+* 支持在 Navigaion Fragment 管理框架、 BottomSheetDialogFragment 等等场景中使用 DataBinding 和 ViewBinding
 * 避免大量的模板代码
 * 避免内存泄露，具有生命周期感知能力，当生命周期处于 `onDestroyed()` 时会自动销毁数据
 
@@ -143,12 +142,16 @@ class FragmentActivity : Activity() {
 }
 ```
 
-* 在 `Fragment` 中使用提供了两种方式，他们的初始化使用位置不同。
+* 在 `Fragment` 中提供了两种方式，他们的使用位置不同，如下所示。
     
     * 方式一：在 `onCreateView` 中使用，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
     * 方式二：在 `onViewCreated` 中使用，查看详细示例 [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) 和 [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
 
-**PS: 如果使用 `Navigaion` 作为新的 Fragment 管理框架，只能使用 `方式一`**，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation) 
+**PS: 需要注意以下几点：**
+
+* 如果使用 `Navigaion` 作为新的 Fragment 管理框架，只能使用 `方式一`，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation) 
+* 在 `BottomSheetDialogFragment` 中，只能使用 `方式一`
+* 在其他 Fragment 场景中，如果使用 `方式二` 界面不显示，改用 `方式一` 即可解决
 
 ```
 方式一：
@@ -247,17 +250,7 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 **2020-12-17（V1.0.4）**
 
-* 支持所有与 RecyclerView.ViewHolder 相关的 Adapter（ListAdapter、PagingDataAdapter、RecyclerView.Adapter 等等）使用 DataBinding 和 ViewBinding
-
-```
-class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val binding: RecycleItemProductBinding by databind()
-}
-
-class ProductViewHolderHeader(view: View) : RecyclerView.ViewHolder(view) {
-    val binding: RecycleItemProductHeaderBinding by viewbind()
-}
-```
+* 支持所有与 RecyclerView.ViewHolder 相关的 Adapter（ListAdapter、PagingDataAdapter、RecyclerView.Adapter 等等）使用 DataBinding 和 ViewBinding，[查看详细示例](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
 
 * 支持通过 `by databind` 初始化，同时可以绑定数据，感谢 `@br3ant` 贡献，[查看详细示例](https://github.com/hi-dhl/Binding/blob/054aa169d8dd39023be55be589b67e8097702bd1/app/src/main/java/com/hi/dhl/demo/binding/databind/DatBindActivity.kt#L28-L33)
 

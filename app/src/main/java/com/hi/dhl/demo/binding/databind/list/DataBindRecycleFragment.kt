@@ -26,7 +26,6 @@ class DataBindRecycleFragment : Fragment(R.layout.fragment_data_bind_recycle) {
         binding.apply {
             viewModel = listViewModel
             adapter = ProductAdapter()
-            lifecycleOwner = this@DataBindRecycleFragment
         }
     }
 

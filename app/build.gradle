@@ -47,7 +47,7 @@ dependencies {
     ext.material = "1.2.1"
     ext.appcompat = "1.2.0"
     ext.ktx = "1.3.2"
-    ext.remote = true
+    ext.remote = false
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:${ktx}"

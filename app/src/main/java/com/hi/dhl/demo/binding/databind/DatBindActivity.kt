@@ -39,7 +39,6 @@ class DatBindActivity : AppCompatActivity(), View.OnClickListener {
         with(binding) {
             account = viewModel.bindAccount()
             mainViewModel = viewModel
-            lifecycleOwner = this@DatBindActivity
         }
 
         getViews().forEach {

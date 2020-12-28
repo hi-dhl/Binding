@@ -2,6 +2,7 @@ package com.hi.dhl.binding.base
 
 import android.app.Activity
 import android.os.Build
+import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.viewbinding.ViewBinding
@@ -27,8 +28,7 @@ abstract class ActivityDelegate<T : ViewBinding>(
 
     init {
         when (activity) {
-            is FragmentActivity -> activity.lifecycle.addObserver { destroyed() }
-            is AppCompatActivity -> activity.lifecycle.addObserver { destroyed() }
+            is ComponentActivity -> activity.lifecycle.addObserver { destroyed() }
             else -> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     activity.registerActivityLifecycleCallbacks { destroyed() }

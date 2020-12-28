@@ -17,7 +17,7 @@ import kotlin.reflect.KProperty
 
 class FragmentDataBinding<T : ViewDataBinding>(
     classes: Class<T>,
-    fragment: Fragment,
+    val fragment: Fragment,
     private var block: (T.() -> Unit)? = null
 ) : FragmentDelegate<T>(fragment) {
 
@@ -39,6 +39,7 @@ class FragmentDataBinding<T : ViewDataBinding>(
 
             return bind.apply {
                 viewBinding = this
+                lifecycleOwner = fragment
                 block?.invoke(this)
                 block = null
             }

@@ -1,6 +1,7 @@
 package com.hi.dhl.binding.databind
 
 import android.app.Activity
+import androidx.activity.ComponentActivity
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -32,6 +33,9 @@ class ActivityDataBinding<T : ViewDataBinding>(
             // 获取 ViewDataBinding
             val bind: T = DataBindingUtil.setContentView(thisRef, resId)
             return bind.apply {
+                if (activity is ComponentActivity) {
+                    bind.lifecycleOwner = activity
+                }
                 viewBinding = this
                 block?.invoke(this)
                 block = null

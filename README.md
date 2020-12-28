@@ -3,7 +3,7 @@
 <p align="center">
 一行代码实现 DataBinding 和 ViewBinding，欢迎 star<br/>
 <p align="center">
-<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.5/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.5"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
+<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.6/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.6"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
 </p>
 </p>
 
@@ -56,7 +56,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.0.5'
+    implementation 'com.hi-dhl:binding:1.0.6'
 }
 ```
 
@@ -243,6 +243,10 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 ```
 
 ### 更新记录
+
+**2020-12-28（V1.0.6）**
+
+* 支持 Activity 和 Fragment 自动绑定 LifecycleOwner。[详见 issue](https://github.com/hi-dhl/Binding/issues/8)
 
 **2020-12-21（V1.0.5）**
 

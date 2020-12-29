@@ -1,13 +1,29 @@
 # <p align="center"> Binding </p>
 
 <p align="center">
-一行代码实现 DataBinding 和 ViewBinding，欢迎 star<br/>
-<p align="center">
-<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.7/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.7"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
-</p>
+One line of code implements DataBinding and ViewBinding. Welcome star<br/>
+一行代码实现 DataBinding 和 ViewBinding，欢迎 star
 </p>
 
-<p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/vbdb.png"> 图例1</a> | <a href="http://img.hi-dhl.com/ViewBidnding.png"> 图例2</a></p>
+<p align="center">
+    <a href="https://github.com/hi-dhl/Binding">English</a> &nbsp;
+    ·
+    &nbsp;<a href="https://github.com/hi-dhl/Binding/doc/README_CN.md">中文</a>
+</p>
+  
+<p align="center">  
+    <a href="https://github.com/hi-dhl">
+        <img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat">
+    </a>  
+
+    <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> 
+    
+    <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.7/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.7"/></a> 
+    
+    <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
+</p>
+
+<p align="center"> If the image cannot be viewed, please click here to view it <a href="http://img.hi-dhl.com/vbdb.png"> img1 </a> | <a href="http://img.hi-dhl.com/ViewBidnding.png"> img2 </a></p>
 
 <p align="center">
 <image src="http://img.hi-dhl.com/vbdb.png" width = 600px/>
@@ -17,35 +33,50 @@
 <image src="http://img.hi-dhl.com/ViewBidnding.png" width = 600px/>
 </p>
 
+**Thanks**
+
+* Thanks to Google Translation
+* the idea from [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)
+* learn skills from open source libraries such as [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) and jetpack
 
 ## 关于 Binding
 
-Binding 简化 DataBinding 和 ViewBinding 的使用， 只需要一行代码即可实现 DataBinding 和 ViewBinding。
+Binding simplifies the use of DataBinding and ViewBinding, and only requires one line of code to implement DataBinding and ViewBinding.
 
-Binding 未来的规划提供通用的 `findViewById` 解决方案，，因技术的迭代更新从 butterknife 、 DataBinding 、 Kotlin 合成方法（Synthetic 视图）到现在 ViewBinding ， 未来也有可能出现新的技术，无论技术怎么变化，只需要更新 Binding ，对外的使用保持不变。
+The future plan of Binding provides a general `findViewById` solution. Due to the iterative update of technology from butterknife, DataBinding, Kotlin synthesis method (Synthetic view) to the current ViewBinding, there may be new technologies in the future. No matter how the technology changes, just need Update Binding, the external use remains unchanged.
 
-Kotlin 合成方法（Synthetic 视图）比 ViewBinding 方便这么多，为什么会被 Google 抛弃掉，请查看这篇文章 [Kotlin 插件的落幕，ViewBinding 的崛起](https://mp.weixin.qq.com/s/FxrRyXp9-VDdv-mfkzsIsA)。
+Kotlin synthesis method (Synthetic view) is so much more convenient than ViewBinding, why is it abandoned by Google, please check this article [Kotlin 插件的落幕，ViewBinding 的崛起](https://mp.weixin.qq.com/s/FxrRyXp9-VDdv-mfkzsIsA)。
 
-感谢小伙伴们的建议，目前 Binding 已经适配了大量的场景，同时也提供了很多 DataBinding 和 ViewBinding 实战案例，如果你在使用过程中遇到 Binding 不兼容的场景，欢迎提 issue，我会尽快解决。
+Thank you for your suggestions. At present, Binding has been adapted to a large number of scenarios. At the same time, it also provides a lot of practical cases of DataBinding and ViewBinding. If you encounter Binding incompatible scenarios during use, please raise an issue and I will solve it as soon as possible. .
 
-**如果这个仓库对你有帮助，请在仓库右上角帮我 star 一下，非常感谢你的支持，同时也欢迎你提交 PR**  ❤️❤️❤️
+**If this repository is helpful to you, please give me star, thank you very much for your support, and welcome you to submit a PR** ❤️❤️❤️
 
-**[Binding](https://github.com/hi-dhl/Binding) 具有以下优点：**
+**[Binding](https://github.com/hi-dhl/Binding)  the following advantages：**
 
-* 简单的 API 只需要一行代码即可实现 DataBinding 或者 ViewBinding
-* 支持在  `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 中的使用 DataBinding 或者 ViewBinding
-* 支持在 `ListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 中的使用 DataBinding 或者 ViewBinding
-* 支持在 Navigaion Fragment 管理框架、 BottomSheetDialogFragment 等等场景中使用 DataBinding 和 ViewBinding
-* 避免大量的模板代码
-* 避免内存泄露，具有生命周期感知能力，当生命周期处于 `onDestroyed()` 时会自动销毁数据
-
-
+* A simple API requires only one line of code to implement DataBinding or ViewBinding
+* Support the use of DataBinding or ViewBinding in the `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 
+* Support the use of DataBinding or ViewBinding in the `ListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 
+* Support the use of DataBinding and ViewBinding in Navigaion Fragment management framework, BottomSheetDialogFragment and other scenarios
+* Avoid a lot of template code
+* Avoid memory leaks, have life cycle awareness, and automatically destroy data when the life cycle is in `onDestroyed()`
 
 ## Download
 
-**Gradle**
+**add jcenter**
 
-将下列代码添加在模块级 `build.gradle` 文件中，并且需要开启 DataBinding 或者 ViewBinding
+Add the following code to the `build.gradle` file at the Project level
+
+```
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+```
+
+**add dependency**
+
+Add the following code to the module level `build.gradle` file, and you need to enable DataBinding or ViewBinding
 
 ```
 android {
@@ -63,12 +94,12 @@ dependencies {
 
 ## Usage
 
-* 在 Adapter（ListAdapter、PagingDataAdapter、RecyclerView.Adapter 等等）中使用 DataBinding 和 ViewBinding，添加 `by viewbind()` 或者 `by databind()` 即可，示例如下所示，[查看详细示例](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
+* Use DataBinding and ViewBinding in Adapter (ListAdapter, PagingDataAdapter, RecyclerView.Adapter, etc.), add `by viewbind()` or `by databind()`, the example is as follows，[see example](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
 
 ```
 class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     
-    // 通过 DataBinding 绑定的 itemView
+    // DataBinding
     val binding: RecycleItemProductBinding by databind()
 
     fun bindData(data: Product?, position: Int) {
@@ -105,8 +136,7 @@ class ProductViewHolderFooter(view: View) : RecyclerView.ViewHolder(view) {
 
 ```
 
-
-* 在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 中使用，继承对应的类添加 `by viewbind()` 即可，示例如下所示。
+* use in `Activity`, `AppCompatActivity`, and `FragmentActivity`, add `by viewbind()` or `by databind(R.layout.activity_main)`, the example is as follows.
 
 ```
 class MainActivity : AppCompatActivity() {
@@ -142,19 +172,19 @@ class FragmentActivity : Activity() {
 }
 ```
 
-* 在 `Fragment` 中提供了两种方式，他们的使用位置不同，如下所示。
+* There are two ways in `Fragment`, and their use positions are different, as shown below.
     
-    * 方式一：在 `onCreateView` 中使用，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
-    * 方式二：在 `onViewCreated` 中使用，查看详细示例 [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) 和 [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
+    * Method 1: Use in `onCreateView`，[see example](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
+    * Method 2: Use in `onViewCreated`，see example [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) and  [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
 
-**PS: 需要注意以下几点：**
+**PS: Need to pay attention to the following points：**
 
-* 如果使用 `Navigaion` 作为新的 Fragment 管理框架，只能使用 `方式一`，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation) 
-* 在 `BottomSheetDialogFragment` 中，只能使用 `方式一`
-* 在其他 Fragment 场景中，如果使用 `方式二` 界面不显示，改用 `方式一` 即可解决
+* If you use Navigaion Fragment management framework, you can only use `Method 1`，[see example](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation) 
+* Use in `BottomSheetDialogFragment` ，you can only use `Method 1`
+* In other Fragment scenarios, if the ui is not displayed using `Method 2`, please use `Method 1` to solve the problem
 
 ```
-方式一：
+Method 1：
 class FragmentNav1 : Fragment(R.layout.fragment_main) {
     
     // DataBinding
@@ -171,7 +201,7 @@ class FragmentNav1 : Fragment(R.layout.fragment_main) {
     }
 }
 
-方式二：
+Method 2：
 class FragmentNav1 : Fragment(R.layout.fragment_main) {
     
     // DataBinding
@@ -187,7 +217,7 @@ class FragmentNav1 : Fragment(R.layout.fragment_main) {
 }
 ``` 
 
-* 在 `Dialog` 中使用方式如下所示。
+* The usage in `Dialog` is as follows。
 
 ```
 class AppDialog(context: Context) : Dialog(context, R.style.AppDialog) {
@@ -205,15 +235,15 @@ class AppDialog(context: Context) : Dialog(context, R.style.AppDialog) {
 }
 ```
 
-或者添加生命周期监听
+or add life cycle listening
 
 ```
 class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style.AppDialog) {
 
-    // DataBinding 监听生命周期
+    // use DataBinding life cycle listening
     val binding: DialogAppBinding by databind(R.layout.dialog_data_binding, lifecycle)
     
-    // ViewBinding 监听生命周期
+    // use ViewBinding life cycle listening
     val binding: DialogAppBinding by viewbind(lifecycle)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -223,7 +253,7 @@ class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style
 }
 ```
 
-* 扩展方法，支持 DataBinding 初始化的时候绑定数据，感谢 `@br3ant` 贡献，[查看详细示例](https://github.com/hi-dhl/Binding/blob/054aa169d8dd39023be55be589b67e8097702bd1/app/src/main/java/com/hi/dhl/demo/binding/databind/DatBindActivity.kt#L28-L33)
+* Extension method that supports DataBinding to bind data when initialized，Thanks to `@br3ant` contribute，[see example](https://github.com/hi-dhl/Binding/blob/054aa169d8dd39023be55be589b67e8097702bd1/app/src/main/java/com/hi/dhl/demo/binding/databind/DatBindActivity.kt#L28-L33)
 
 ```
 val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
@@ -233,7 +263,7 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 }
 ```
 
-### 混淆
+### proguard
 
 ```
 -keepclassmembers class ** implements androidx.viewbinding.ViewBinding {
@@ -242,45 +272,47 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 }
 ```
 
-### 更新记录
+### change log
 
 **2020-12-28（V1.0.6）**
 
-* 支持 Activity 和 Fragment 自动绑定 LifecycleOwner。[详见 issue](https://github.com/hi-dhl/Binding/issues/8)
+* Support Activity and Fragment to automatically bind LifecycleOwner。[see issue](https://github.com/hi-dhl/Binding/issues/8)
 
 **2020-12-21（V1.0.5）**
 
-* 支持在 navigation fragment 中使用 DataBinding 和 ViewBinding，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
+* Support using DataBinding and ViewBinding in navigation fragment，[see example](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
 
 **2020-12-17（V1.0.4）**
 
-* 支持所有与 RecyclerView.ViewHolder 相关的 Adapter（ListAdapter、PagingDataAdapter、RecyclerView.Adapter 等等）使用 DataBinding 和 ViewBinding，[查看详细示例](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
+* Support all Adapters related to RecyclerView.ViewHolder (ListAdapter, PagingDataAdapter, RecyclerView.Adapter, etc.) to use DataBinding and ViewBinding，[see example](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
 
-* 支持通过 `by databind` 初始化，同时可以绑定数据，感谢 `@br3ant` 贡献，[查看详细示例](https://github.com/hi-dhl/Binding/blob/054aa169d8dd39023be55be589b67e8097702bd1/app/src/main/java/com/hi/dhl/demo/binding/databind/DatBindActivity.kt#L28-L33)
+* Extension method that supports DataBinding to bind data when initialized，Thanks to `@br3ant` contribute，[see example](https://github.com/hi-dhl/Binding/blob/054aa169d8dd39023be55be589b67e8097702bd1/app/src/main/java/com/hi/dhl/demo/binding/databind/DatBindActivity.kt#L28-L33)
 
 **2020-12-15（V1.0.3）**
 
-* 添加了 DataBinding 在 Dialog 中的使用，  `by databind(R.layout.dialog_data_binding)` 或者 `by databind(R.layout.dialog_data_binding, lifecycle)` 
-* 处理了 `大于等于 Android 10.0` 和 `小于 Android 10.0` 生命周期问题，当处于 `onDestroyed()` 时会自动销毁数据
-* 最低 SDK 版本降低至 14
+* Use of DataBinding in Dialog，  `by databind(R.layout.dialog_data_binding)` or `by databind(R.layout.dialog_data_binding, lifecycle)` 
+* Avoid memory leaks, have life cycle awareness, and automatically destroy data when the life cycle is in `onDestroyed()`
+* The minimum SDK version is reduced to 14
 
 **2020-12-14:**
 
-* Demo 增加 DataBinding 示例
-* Demo 增加 ViewBinding 示例
-* Demo 增加 kotlin-parcelize 示例
+* Demo adds DataBinding example
+* Demo adds ViewBinding example
+* Demo adds kotlin-parcelize example
 
 **2020-12-13（V1.0.1）**
 
-* 添加了 ViewBinding 在 Dialog 中的使用，  `by viewbind()` 或者 `by viewbind(lifecycle)` 
+* Use  ViewBinding in Dialog, add `by viewbind()` or `by viewbind(lifecycle)` 
 
 **2020-12-12（V1.0.0）**
 
-* 添加 DataBinding 和 ViewBinding 在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 中的使用
-* 避免模板代码，只需要一行代码即可实现 DataBinding 或者 ViewBinding 
-* 当生命周期处于 `onDestroyed()` 时会自动销毁数据
+* A simple API requires only one line of code to implement DataBinding or ViewBinding
+* Support the use of DataBinding or ViewBinding in the `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment`  
+* Avoid a lot of template code
+* Avoid memory leaks, have life cycle awareness, and automatically destroy data when the life cycle is in `onDestroyed()`
 
-### 联系我
+
+### contact me
 
 * 个人微信：hi-dhl
 * 公众号：ByteCode，包含 Jetpack ，Kotlin ，Android 10 系列源码，译文，LeetCode / 剑指 Offer / 多线程 / 国内外大厂算法题 等等一系列文章
@@ -310,9 +342,11 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 中文：
 
-感谢 [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)  文章带来的思路，以及从 [Anko](https://github.com/Kotlin/anko) 、和 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) 等等开源库中学习到技巧
+感谢 [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)  文章带来的思路，以及从 [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) 和 jetpack 等等开源库中学习到技巧
 
 English:
 
-Thanks to the [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c) 、  [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) and [Anko](https://github.com/Kotlin/anko) ... open source project
+* Thanks to Google Translation
+* the idea from [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)
+* learn skills from open source libraries such as [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) and jetpack
 

@@ -31,7 +31,7 @@ One line of code implements DataBinding and ViewBinding. Welcome star<br/>
 * the idea from [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)
 * learn skills from open source libraries such as [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) and jetpack
 
-## 关于 Binding
+## About Binding
 
 Binding simplifies the use of DataBinding and ViewBinding, and only requires one line of code to implement DataBinding and ViewBinding.
 

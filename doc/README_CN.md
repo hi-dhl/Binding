@@ -58,6 +58,7 @@ Kotlin 合成方法（Synthetic 视图）比 ViewBinding 方便这么多，为�
 ```
 allprojects {
     repositories {
+        // 如果在国内建议添加 public，public 是 central 仓库 和 jcenter 仓库的聚合仓库
         maven { url "https://maven.aliyun.com/repository/public" }
         jcenter()
     }

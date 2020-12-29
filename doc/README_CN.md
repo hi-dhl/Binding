@@ -8,7 +8,7 @@ One line of code implements DataBinding and ViewBinding. Welcome star
 <p align="center">
     <a href="https://github.com/hi-dhl/Binding">English</a>&nbsp;
     ·
-    &nbsp;<a href="https://github.com/hi-dhl/Binding/doc/README_CN.md">中文</a>
+    &nbsp;<a href="https://github.com/hi-dhl/Binding/blob/main/doc/README_CN.md">中文</a>
 </p>
 
 <p align="center">

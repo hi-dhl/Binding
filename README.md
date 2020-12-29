@@ -8,19 +8,11 @@ One line of code implements DataBinding and ViewBinding. Welcome star<br/>
 <p align="center">
     <a href="https://github.com/hi-dhl/Binding">English</a> &nbsp;
     ·
-    &nbsp;<a href="https://github.com/hi-dhl/Binding/doc/README_CN.md">中文</a>
+    &nbsp;<a href="https://github.com/hi-dhl/Binding/blob/main/doc/README_CN.md">中文</a>
 </p>
   
-<p align="center">  
-    <a href="https://github.com/hi-dhl">
-        <img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat">
-    </a>  
-
-    <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> 
-    
-    <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.7/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.7"/></a> 
-    
-    <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
+<p align="center">
+<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.7/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.7"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
 </p>
 
 <p align="center"> If the image cannot be viewed, please click here to view it <a href="http://img.hi-dhl.com/vbdb.png"> img1 </a> | <a href="http://img.hi-dhl.com/ViewBidnding.png"> img2 </a></p>

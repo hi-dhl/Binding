@@ -65,7 +65,7 @@ allprojects {
 }
 ```
 
-**Gradle**
+**添加依赖**
 
 将下列代码添加在模块级 `build.gradle` 文件中，并且需要开启 DataBinding 或者 ViewBinding
 

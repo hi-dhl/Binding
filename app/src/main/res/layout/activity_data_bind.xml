@@ -104,7 +104,7 @@
             android:id="@+id/btnNavigation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_10dp"
             android:layout_marginBottom="@dimen/margin_20dp"
             android:text="在 Navigation 当中的使用" />
 
@@ -112,8 +112,16 @@
             android:id="@+id/btnStub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_10dp"
             android:layout_marginBottom="@dimen/margin_20dp"
             android:text="使用 ViewStub 加载布局" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnInclude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:text="使用 include 加载布局" />
     </LinearLayout>
 </layout>

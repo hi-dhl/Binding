@@ -7,10 +7,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.hi.dhl.binding.viewbind
 import com.hi.dhl.demo.binding.R
-import com.hi.dhl.demo.binding.databind.ViewStubActivity
+import com.hi.dhl.demo.binding.databind.BindViewStubActivity
 import com.hi.dhl.demo.binding.databind.list.DataBindRecycleActivity
 import com.hi.dhl.demo.binding.databinding.FragmentViewBindBinding
-import com.hi.dhl.demo.binding.databinding.LayoutItem1Binding
+import com.hi.dhl.demo.binding.databinding.LayoutMergeItemBinding
 import com.hi.dhl.demo.binding.navigation.NavigationActivity
 
 /**
@@ -41,7 +41,10 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
 
             // include without merge
             include.includeTvTitle.setText("使用 include 布局中的控件, 不包含 merge")
-            LayoutItem1Binding.bind(root).mergeTvTitle.setText("使用 include 布局中的控件, 包含 merge")
+
+            // include
+            LayoutMergeItemBinding.bind(root)
+                .mergeTvTitle.setText("使用 include 布局中的控件, 包含 merge")
         }
 
         getViews().forEach {
@@ -66,7 +69,7 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
                 }
                 btnRecycle -> DataBindRecycleActivity.startActivity(requireActivity())
                 btnNavigation -> NavigationActivity.startActivity(requireActivity())
-                btnStub -> ViewStubActivity.startActivtiy(requireActivity())
+                btnStub -> BindViewStubActivity.startActivtiy(requireActivity())
                 else -> {
                 }
             }

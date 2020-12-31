@@ -56,7 +56,8 @@ class DatBindActivity : AppCompatActivity(), View.OnClickListener {
                 btnDialog -> DataBindDialog(this@DatBindActivity, lifecycle).show()
                 btnRecycle -> DataBindRecycleActivity.startActivity(this@DatBindActivity)
                 btnNavigation -> NavigationActivity.startActivity(this@DatBindActivity)
-                btnStub -> ViewStubActivity.startActivtiy(this@DatBindActivity)
+                btnStub -> BindViewStubActivity.startActivtiy(this@DatBindActivity)
+                btnInclude -> DataBindIncludeActivity.startActivtiy(this@DatBindActivity)
             }
         }
     }
@@ -68,7 +69,8 @@ class DatBindActivity : AppCompatActivity(), View.OnClickListener {
             btnDialog,
             btnRecycle,
             btnNavigation,
-            btnStub
+            btnStub,
+            btnInclude
         )
     }
 

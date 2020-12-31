@@ -37,7 +37,11 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".databind.ViewStubActivity"
+            android:name=".databind.BindViewStubActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".databind.DataBindIncludeActivity"
             android:screenOrientation="portrait" />
     </application>
 

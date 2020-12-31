@@ -19,7 +19,7 @@ import com.hi.dhl.demo.binding.databinding.ViewStubDataBinding
  *     desc  :
  * </pre>
  */
-class ViewStubActivity : AppCompatActivity() {
+class BindViewStubActivity : AppCompatActivity() {
 
     val binding: ActivityViewStubBinding by databind(R.layout.activity_view_stub)
 
@@ -54,7 +54,7 @@ class ViewStubActivity : AppCompatActivity() {
     companion object {
 
         fun startActivtiy(activity: Activity) {
-            activity.startActivity(Intent(activity, ViewStubActivity::class.java))
+            activity.startActivity(Intent(activity, BindViewStubActivity::class.java))
         }
 
     }

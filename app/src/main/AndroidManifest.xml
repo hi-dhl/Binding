@@ -35,6 +35,10 @@
         <activity
             android:name="com.hi.dhl.demo.binding.navigation.NavigationActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".databind.ViewStubActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

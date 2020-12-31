@@ -56,12 +56,20 @@ class DatBindActivity : AppCompatActivity(), View.OnClickListener {
                 btnDialog -> DataBindDialog(this@DatBindActivity, lifecycle).show()
                 btnRecycle -> DataBindRecycleActivity.startActivity(this@DatBindActivity)
                 btnNavigation -> NavigationActivity.startActivity(this@DatBindActivity)
+                btnStub -> ViewStubActivity.startActivtiy(this@DatBindActivity)
             }
         }
     }
 
     private fun getViews() = with(binding) {
-        arrayListOf<View>(btnBindRandom, btnBindAdapter, btnDialog, btnRecycle, btnNavigation)
+        arrayListOf<View>(
+            btnBindRandom,
+            btnBindAdapter,
+            btnDialog,
+            btnRecycle,
+            btnNavigation,
+            btnStub
+        )
     }
 
     companion object {

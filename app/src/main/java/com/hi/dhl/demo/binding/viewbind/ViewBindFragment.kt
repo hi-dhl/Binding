@@ -10,7 +10,6 @@ import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databind.BindViewStubActivity
 import com.hi.dhl.demo.binding.databind.list.DataBindRecycleActivity
 import com.hi.dhl.demo.binding.databinding.FragmentViewBindBinding
-import com.hi.dhl.demo.binding.databinding.LayoutMergeItemBinding
 import com.hi.dhl.demo.binding.navigation.NavigationActivity
 
 /**
@@ -36,17 +35,6 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding) {
-            tvTitle.setText("直接使用布局中的控件")
-
-            // include without merge
-            include.includeTvTitle.setText("使用 include 布局中的控件, 不包含 merge")
-
-            // include
-            LayoutMergeItemBinding.bind(root)
-                .mergeTvTitle.setText("使用 include 布局中的控件, 包含 merge")
-        }
-
         getViews().forEach {
             it.setOnClickListener(this)
         }
@@ -54,7 +42,7 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
     }
 
     private fun getViews() = with(binding) {
-        arrayListOf<View>(btnDialog, btnRecycle, btnNavigation, btnDialog, btnStub)
+        arrayListOf<View>(btnDialog, btnRecycle, btnNavigation, btnDialog, btnStub, btnInclude)
     }
 
     override fun onClick(v: View) {
@@ -70,6 +58,7 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
                 btnRecycle -> DataBindRecycleActivity.startActivity(requireActivity())
                 btnNavigation -> NavigationActivity.startActivity(requireActivity())
                 btnStub -> BindViewStubActivity.startActivtiy(requireActivity())
+                btnInclude -> ViewBindIncludeActivity.startActivtiy(requireActivity())
                 else -> {
                 }
             }

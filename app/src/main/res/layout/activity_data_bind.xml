@@ -24,7 +24,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_40dp"
+            android:layout_marginBottom="@dimen/margin_20dp"
             android:gravity="center_horizontal"
             android:text="演示 DataBinding 常用的几种用法"
             android:textColor="@color/black"

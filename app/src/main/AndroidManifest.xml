@@ -43,6 +43,10 @@
         <activity
             android:name=".databind.DataBindIncludeActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".viewbind.ViewBindIncludeActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

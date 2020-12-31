@@ -8,23 +8,11 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_40dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
         android:gravity="center_horizontal"
         android:text="这是一个 Fragment \n 演示 ViewBinding 常用的几种用法"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_16sp" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black" />
-
-    <include
-        android:id="@+id/include"
-        layout="@layout/layout_include_item" />
-
-    <include layout="@layout/layout_merge_item" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnDialog"
@@ -56,4 +44,12 @@
         android:layout_marginTop="@dimen/margin_20dp"
         android:layout_marginBottom="@dimen/margin_20dp"
         android:text="使用 ViewStub 加载布局" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnInclude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:text="使用 include 加载布局" />
 </LinearLayout>

@@ -266,6 +266,10 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 ### change log
 
+**2020-12-31**
+
+* add the use case of ViewStub in DataBinding and ViewBinding，[see example](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/ViewStubActivity.kt)
+
 **2020-12-28（V1.0.6）**
 
 * Support Activity and Fragment to automatically bind LifecycleOwner。[see issue](https://github.com/hi-dhl/Binding/issues/8)

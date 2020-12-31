@@ -268,7 +268,8 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 **2020-12-31**
 
-* 增加 ViewStub 在 DataBinding 和 ViewBinding 中的使用案例，[查看详细示例](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/ViewStubActivity.kt)
+* 增加 ViewStub 在 DataBinding 和 ViewBinding 中的使用案例，[查看详细示例](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/BindViewStubActivity.kt)
+* 增加 include 在 DataBinding 和 ViewBinding 中的使用案例，[DataBindIncludeActivity](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/DataBindIncludeActivity.kt) 或者 [ViewBindIncludeActivity](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindIncludeActivity.kt)
 
 **2020-12-28（V1.0.6）**
 

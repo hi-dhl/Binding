@@ -269,6 +269,8 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 **2020-12-31**
 
 * add the use case of ViewStub in DataBinding and ViewBinding，[see example](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/ViewStubActivity.kt)
+* add the use case of Include in DataBinding and ViewBinding，[DataBindIncludeActivity](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/DataBindIncludeActivity.kt) or [ViewBindIncludeActivity](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindIncludeActivity.kt)
+
 
 **2020-12-28（V1.0.6）**
 

@@ -45,12 +45,14 @@ Thank you for your suggestions. At present, Binding has been adapted to a large 
 
 **[Binding](https://github.com/hi-dhl/Binding)  the following advantages：**
 
+* Provides many cases including `Ativity`, `Fragment`, `Dialog`, `Adapter`, `include`, `merge`, `ViewStub` , `Navigation` etc.
 * A simple API requires only one line of code to implement DataBinding or ViewBinding
 * Support the use of DataBinding or ViewBinding in the `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 
 * Support the use of DataBinding or ViewBinding in the `ListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 
 * Support the use of DataBinding and ViewBinding in Navigaion Fragment management framework, BottomSheetDialogFragment and other scenarios
 * Avoid a lot of template code
 * Avoid memory leaks, have life cycle awareness, and automatically destroy data when the life cycle is in `onDestroyed()`
+
 
 ## Download
 
@@ -113,49 +115,13 @@ class ProductViewHolderHeader(view: View) : RecyclerView.ViewHolder(view) {
         }
     }
 }
-
-class ProductViewHolderFooter(view: View) : RecyclerView.ViewHolder(view) {
-    
-    // ViewBinding
-    val binding: RecycleItemProductFooterBinding by viewbind()
-
-    fun bindData(data: Product?, position: Int) {
-        binding.apply {
-            name.text = "通过 ViewBinding 绑定的 footer"
-        }
-    }
-}
-
 ```
 
-* use in `Activity`, `AppCompatActivity`, and `FragmentActivity`, add `by viewbind()` or `by databind(R.layout.activity_main)`, the example is as follows.
+* use in `Activity`, `AppCompatActivity`, and `FragmentActivity`, add `by viewbind()` or `by databind(R.layout.activity_main)`.
 
 ```
 class MainActivity : AppCompatActivity() {
 
-    // DataBinding
-    val binding: ActivityMainBinding by databind(R.layout.activity_main)
-    
-    // ViewBinding
-    val binding: ActivityMainBinding by viewbind()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding.apply {
-            textView.setText("Binding")
-        }
-    }
-}
-
-class MainActivity : Activity() {
-    // DataBinding
-    val binding: ActivityMainBinding by databind(R.layout.activity_main)
-    
-    // ViewBinding
-    val binding: ActivityMainBinding by viewbind()
-}
-
-class FragmentActivity : Activity() {
     // DataBinding
     val binding: ActivityMainBinding by databind(R.layout.activity_main)
     

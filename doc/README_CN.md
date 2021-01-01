@@ -40,12 +40,14 @@ Kotlin 合成方法（Synthetic 视图）比 ViewBinding 方便这么多，为�
 
 **[Binding](https://github.com/hi-dhl/Binding) 具有以下优点：**
 
+* 提供了很多实战案例包含 `Ativity` 、 `Fragment` 、 `Dialog` 、 `Adapter` 、 `include` 、 `merge` 、 `ViewStub` 、 `Navigation` 等等场景
 * 简单的 API 只需要一行代码即可实现 DataBinding 或者 ViewBinding
 * 支持在  `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 中的使用 DataBinding 或者 ViewBinding
 * 支持在 `ListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 中的使用 DataBinding 或者 ViewBinding
 * 支持在 Navigaion Fragment 管理框架、 BottomSheetDialogFragment 等等场景中使用 DataBinding 和 ViewBinding
 * 避免大量的模板代码
 * 避免内存泄露，具有生命周期感知能力，当生命周期处于 `onDestroyed()` 时会自动销毁数据
+
 
 
 
@@ -112,19 +114,6 @@ class ProductViewHolderHeader(view: View) : RecyclerView.ViewHolder(view) {
         }
     }
 }
-
-class ProductViewHolderFooter(view: View) : RecyclerView.ViewHolder(view) {
-    
-    // ViewBinding
-    val binding: RecycleItemProductFooterBinding by viewbind()
-
-    fun bindData(data: Product?, position: Int) {
-        binding.apply {
-            name.text = "通过 ViewBinding 绑定的 footer"
-        }
-    }
-}
-
 ```
 
 
@@ -133,29 +122,6 @@ class ProductViewHolderFooter(view: View) : RecyclerView.ViewHolder(view) {
 ```
 class MainActivity : AppCompatActivity() {
 
-    // DataBinding
-    val binding: ActivityMainBinding by databind(R.layout.activity_main)
-    
-    // ViewBinding
-    val binding: ActivityMainBinding by viewbind()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding.apply {
-            textView.setText("Binding")
-        }
-    }
-}
-
-class MainActivity : Activity() {
-    // DataBinding
-    val binding: ActivityMainBinding by databind(R.layout.activity_main)
-    
-    // ViewBinding
-    val binding: ActivityMainBinding by viewbind()
-}
-
-class FragmentActivity : Activity() {
     // DataBinding
     val binding: ActivityMainBinding by databind(R.layout.activity_main)
     

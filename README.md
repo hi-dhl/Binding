@@ -48,7 +48,7 @@ Thank you for your suggestions. At present, Binding has been adapted to a large 
 * Provides many cases including `Ativity`, `Fragment`, `Dialog`, `Adapter`, `include`, `merge`, `ViewStub` , `Navigation` etc.
 * A simple API requires only one line of code to implement DataBinding or ViewBinding
 * Support the use of DataBinding or ViewBinding in the `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 
-* Support the use of DataBinding or ViewBinding in the `ListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 
+* Support the use of DataBinding or ViewBinding in the `ListAdapter` 、  `PagedListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 
 * Support the use of DataBinding and ViewBinding in Navigaion Fragment management framework, BottomSheetDialogFragment and other scenarios
 * Avoid a lot of template code
 * Avoid memory leaks, have life cycle awareness, and automatically destroy data when the life cycle is in `onDestroyed()`
@@ -88,7 +88,7 @@ dependencies {
 
 ## Usage
 
-* Use DataBinding and ViewBinding in Adapter (ListAdapter, PagingDataAdapter, RecyclerView.Adapter, etc.), add `by viewbind()` or `by databind()`, the example is as follows，[see example](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
+Use DataBinding and ViewBinding in Adapter (ListAdapter, PagingDataAdapter, RecyclerView.Adapter, etc.), add `by viewbind()` or `by databind()`, the example is as follows，[see example](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
 
 ```
 class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -117,7 +117,7 @@ class ProductViewHolderHeader(view: View) : RecyclerView.ViewHolder(view) {
 }
 ```
 
-* use in `Activity`, `AppCompatActivity`, and `FragmentActivity`, add `by viewbind()` or `by databind(R.layout.activity_main)`.
+use in `Activity`, `AppCompatActivity`, and `FragmentActivity`, add `by viewbind()` or `by databind(R.layout.activity_main)`.
 
 ```
 class MainActivity : AppCompatActivity() {
@@ -130,10 +130,10 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-* There are two ways in `Fragment`, and their use positions are different, as shown below.
+There are two ways in `Fragment`, and their use positions are different, as shown below.
     
-    * Method 1: Use in `onCreateView`，[see example](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
-    * Method 2: Use in `onViewCreated`，see example [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) and  [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
+* Method 1: Use in `onCreateView`，[see example](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
+* Method 2: Use in `onViewCreated`，see example [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) and  [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
 
 **PS: Need to pay attention to the following points：**
 
@@ -175,7 +175,7 @@ class FragmentNav1 : Fragment(R.layout.fragment_main) {
 }
 ``` 
 
-* The usage in `Dialog` is as follows。
+The usage in `Dialog` is as follows。
 
 ```
 class AppDialog(context: Context) : Dialog(context, R.style.AppDialog) {
@@ -211,7 +211,7 @@ class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style
 }
 ```
 
-* Extension method that supports DataBinding to bind data when initialized，Thanks to `@br3ant` contribute，[see example](https://github.com/hi-dhl/Binding/blob/054aa169d8dd39023be55be589b67e8097702bd1/app/src/main/java/com/hi/dhl/demo/binding/databind/DatBindActivity.kt#L28-L33)
+Extension method that supports DataBinding to bind data when initialized，Thanks to `@br3ant` contribute，[see example](https://github.com/hi-dhl/Binding/blob/054aa169d8dd39023be55be589b67e8097702bd1/app/src/main/java/com/hi/dhl/demo/binding/databind/DatBindActivity.kt#L28-L33)
 
 ```
 val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {

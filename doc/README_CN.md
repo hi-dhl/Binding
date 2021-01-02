@@ -40,10 +40,10 @@ Kotlin 合成方法（Synthetic 视图）比 ViewBinding 方便这么多，为�
 
 **[Binding](https://github.com/hi-dhl/Binding) 具有以下优点：**
 
-* 提供了很多实战案例包含 `Ativity` 、 `Fragment` 、 `Dialog` 、 `Adapter` 、 `include` 、 `merge` 、 `ViewStub` 、 `Navigation` 等等场景
+* 提供了很多实战案例包含 `Ativity` 、 `Fragment` 、 `Dialog` 、 `Adapter` 、 `include` 、 `merge` 、 `ViewStub` 、 `Navigation`  、 数据双向绑定 等等场景
 * 简单的 API 只需要一行代码即可实现 DataBinding 或者 ViewBinding
 * 支持在  `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 中的使用 DataBinding 或者 ViewBinding
-* 支持在 `ListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 中的使用 DataBinding 或者 ViewBinding
+* 支持在 `ListAdapter` 、 `PagedListAdapter` 、 `PagingDataAdapter` 、 `RecyclerView.Adapter` 中的使用 DataBinding 或者 ViewBinding
 * 支持在 Navigaion Fragment 管理框架、 BottomSheetDialogFragment 等等场景中使用 DataBinding 和 ViewBinding
 * 避免大量的模板代码
 * 避免内存泄露，具有生命周期感知能力，当生命周期处于 `onDestroyed()` 时会自动销毁数据
@@ -87,7 +87,7 @@ dependencies {
 
 ## Usage
 
-* 在 Adapter（ListAdapter、PagingDataAdapter、RecyclerView.Adapter 等等）中使用 DataBinding 和 ViewBinding，添加 `by viewbind()` 或者 `by databind()` 即可，示例如下所示，[查看详细示例](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
+在 Adapter 中使用 DataBinding 和 ViewBinding，只需要在 ViewHolder 中添加 `by viewbind()` 或者 `by databind()` 即可，示例如下所示，[查看详细示例](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
 
 ```
 class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -117,7 +117,7 @@ class ProductViewHolderHeader(view: View) : RecyclerView.ViewHolder(view) {
 ```
 
 
-* 在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 中使用，继承对应的类，添加 `by viewbind()` 或者 `by databind(R.layout.activity_main)` 即可，示例如下所示。
+在 `Activity` 、`AppCompatActivity` 、`FragmentActivity` 中使用，添加 `by viewbind()` 或者 `by databind(R.layout.activity_main)` 即可，示例如下所示。
 
 ```
 class MainActivity : AppCompatActivity() {
@@ -130,19 +130,14 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-* 在 `Fragment` 中提供了两种方式，他们的使用位置不同，如下所示。
+在 `Fragment` 中提供了两种方式：
     
-    * 方式一：在 `onCreateView` 中使用，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
-    * 方式二：在 `onViewCreated` 中使用，查看详细示例 [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) 和 [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
+* 方式一：在 `onCreateView` 中使用，这种方式适用于所有使用 `Fragment` 的场景，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
+* 方式二：在 `onViewCreated` 中使用，查看 [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) 和 [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
 
-**PS: 需要注意以下几点：**
-
-* 如果使用 `Navigaion` 作为新的 Fragment 管理框架，只能使用 `方式一`，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation) 
-* 在 `BottomSheetDialogFragment` 中，只能使用 `方式一`
-* 在其他 Fragment 场景中，如果使用 `方式二` 界面不显示，改用 `方式一` 即可解决
+**方式一：**
 
 ```
-方式一：
 class FragmentNav1 : Fragment(R.layout.fragment_main) {
     
     // DataBinding
@@ -158,8 +153,14 @@ class FragmentNav1 : Fragment(R.layout.fragment_main) {
         return binding.root
     }
 }
+```
 
-方式二：
+**方式二，需要注意以下几点：**
+
+* 在 `Navigaion Fragment` 和 `BottomSheetDialogFragment` 中仅能使用方式一，[查看 navigation](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
+* 在其他 Fragment 场景中，如果使用 `方式二` 界面不显示，改用 `方式一` 即可解决
+
+```
 class FragmentNav1 : Fragment(R.layout.fragment_main) {
     
     // DataBinding
@@ -175,7 +176,7 @@ class FragmentNav1 : Fragment(R.layout.fragment_main) {
 }
 ``` 
 
-* 在 `Dialog` 中使用方式如下所示。
+在 `Dialog` 中使用方式如下所示。
 
 ```
 class AppDialog(context: Context) : Dialog(context, R.style.AppDialog) {
@@ -193,7 +194,7 @@ class AppDialog(context: Context) : Dialog(context, R.style.AppDialog) {
 }
 ```
 
-或者添加生命周期监听
+或者添加具有生命周期感知的 `Dialog`。
 
 ```
 class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style.AppDialog) {
@@ -211,7 +212,7 @@ class AppDialog(context: Context,lifecycle: Lifecycle) : Dialog(context, R.style
 }
 ```
 
-* 扩展方法，支持 DataBinding 初始化的时候绑定数据，感谢 `@br3ant` 贡献，[查看详细示例](https://github.com/hi-dhl/Binding/blob/054aa169d8dd39023be55be589b67e8097702bd1/app/src/main/java/com/hi/dhl/demo/binding/databind/DatBindActivity.kt#L28-L33)
+扩展方法，支持 DataBinding 初始化的时候绑定数据，感谢 `@br3ant` 贡献，[查看详细示例](https://github.com/hi-dhl/Binding/blob/054aa169d8dd39023be55be589b67e8097702bd1/app/src/main/java/com/hi/dhl/demo/binding/databind/DatBindActivity.kt#L28-L33)
 
 ```
 val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {

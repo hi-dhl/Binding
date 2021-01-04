@@ -89,13 +89,13 @@ dependencies {
 
 Binding provides a simple API as shown below.
 
-**ViewBinding 中的使用**
+**ViewBinding**
 
 ```
 val binding: ActivityViewBindBinding by viewbind()
 ```
 
-**DataBinding 中的使用**
+**DataBinding**
 
 ```
 val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind)

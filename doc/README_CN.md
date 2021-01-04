@@ -84,8 +84,27 @@ dependencies {
 }
 ```
 
+## 简单的 API
 
-## Usage
+Binding 统一封装了 DataBinding 和 ViewBinding， 提供了简单的 API 如下所示。
+
+**ViewBinding 中的使用**
+
+```
+val binding: ActivityViewBindBinding by viewbind()
+```
+
+**DataBinding 中的使用**
+
+```
+val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind)
+或者
+val binding: ActivityDataBindBinding by databind()
+```
+
+我们来看一下在 `Ativity` 、 `Fragment` 、 `Dialog` 、 `Adapter` 、 `include` 、 `merge` 、 `ViewStub` 、 `Navigation`  、 数据双向绑定 等等场景中如何使用。
+
+## 使用
 
 在 Adapter 中使用 DataBinding 和 ViewBinding，只需要在 ViewHolder 中添加 `by viewbind()` 或者 `by databind()` 即可，示例如下所示，[查看详细示例](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
 

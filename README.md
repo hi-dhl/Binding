@@ -85,6 +85,25 @@ dependencies {
 }
 ```
 
+## simple API
+
+Binding provides a simple API as shown below.
+
+**ViewBinding 中的使用**
+
+```
+val binding: ActivityViewBindBinding by viewbind()
+```
+
+**DataBinding 中的使用**
+
+```
+val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind)
+or
+val binding: ActivityDataBindBinding by databind()
+```
+
+let's see how to use in `Ativity`, `Fragment`, `Dialog`, `Adapter`, `include`, `merge`, `ViewStub` , `Navigation` etc.
 
 ## Usage
 

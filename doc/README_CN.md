@@ -32,7 +32,9 @@ Binding 简化 DataBinding 和 ViewBinding 的使用， 只需要一行代码即
 
 Binding 未来的规划提供通用的 `findViewById` 解决方案，，因技术的迭代更新从 butterknife 、 DataBinding 、 Kotlin 合成方法（Synthetic 视图）到现在 ViewBinding ， 未来也有可能出现新的技术，无论技术怎么变化，只需要更新 Binding ，对外的使用保持不变。
 
-Kotlin 合成方法（Synthetic 视图）比 ViewBinding 方便这么多，为什么会被 Google 抛弃掉，请查看这篇文章 [Kotlin 插件的落幕，ViewBinding 的崛起](https://mp.weixin.qq.com/s/FxrRyXp9-VDdv-mfkzsIsA)。
+* Kotlin 合成方法（Synthetic 视图）比 ViewBinding 方便这么多，为什么会被 Google 抛弃掉，请查看这篇文章 [Kotlin 插件的落幕，ViewBinding 的崛起](https://mp.weixin.qq.com/s/FxrRyXp9-VDdv-mfkzsIsA)。
+
+* 这篇文章 [竟然如此简单，DataBinding 和 ViewBinding](https://mp.weixin.qq.com/s/omn7AhHzihhtr0vtq6csNg) 从使用的角度分析了 DataBinding 和 ViewBinding 不同之处，同时也介绍了如何用更简单的方式实现 DataBinding 和 ViewBinding。
 
 感谢小伙伴们的建议，目前 Binding 已经适配了大量的场景，同时也提供了很多 DataBinding 和 ViewBinding 实战案例，如果你在使用过程中遇到 Binding 不兼容的场景，欢迎提 issue，我会尽快解决。
 
@@ -239,6 +241,13 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
     account.name = "test"
     this.account = account
 }
+```
+
+不想为某个布局生成 binding 类，将下面属性添加到布局文件的根视图中
+
+```
+<LinearLayout tools:viewBindingIgnore="true" >
+</LinearLayout>
 ```
 
 ### 混淆

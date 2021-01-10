@@ -37,7 +37,9 @@ Binding simplifies the use of DataBinding and ViewBinding, and only requires one
 
 The future plan of Binding provides a general `findViewById` solution. Due to the iterative update of technology from butterknife, DataBinding, Kotlin synthesis method (Synthetic view) to the current ViewBinding, there may be new technologies in the future. No matter how the technology changes, just need Update Binding, the external use remains unchanged.
 
-Kotlin synthesis method (Synthetic view) is so much more convenient than ViewBinding, why is it abandoned by Google, please check this article [Kotlin 插件的落幕，ViewBinding 的崛起](https://mp.weixin.qq.com/s/FxrRyXp9-VDdv-mfkzsIsA)。
+* Kotlin synthesis method (Synthetic view) is so much more convenient than ViewBinding, why is it abandoned by Google, please check this article [Kotlin 插件的落幕，ViewBinding 的崛起](https://mp.weixin.qq.com/s/FxrRyXp9-VDdv-mfkzsIsA)。
+
+* This article [竟然如此简单，DataBinding 和 ViewBinding](https://mp.weixin.qq.com/s/omn7AhHzihhtr0vtq6csNg) analyzes the difference between DataBinding and ViewBinding from the perspective of use, and also introduces how to use simpler Ways to implement DataBinding and ViewBinding.
 
 Thank you for your suggestions. At present, Binding has been adapted to a large number of scenarios. At the same time, it also provides a lot of practical cases of DataBinding and ViewBinding. If you encounter Binding incompatible scenarios during use, please raise an issue and I will solve it as soon as possible. .
 
@@ -238,6 +240,13 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
     account.name = "test"
     this.account = account
 }
+```
+
+Do not want to generate a binding class for a layout, add the following attributes to the root view of the layout file
+
+```
+<LinearLayout tools:viewBindingIgnore="true" >
+</LinearLayout>
 ```
 
 ### proguard

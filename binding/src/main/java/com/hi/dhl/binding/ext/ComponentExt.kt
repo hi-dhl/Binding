@@ -2,20 +2,16 @@ package com.hi.dhl.binding
 
 import android.app.Activity
 import android.app.Dialog
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.hi.dhl.binding.databind.ActivityDataBinding
-import com.hi.dhl.binding.databind.DialogDataBinding
-import com.hi.dhl.binding.databind.FragmentDataBinding
-import com.hi.dhl.binding.databind.ViewHolderDataBinding
-import com.hi.dhl.binding.viewbind.ActivityViewBinding
-import com.hi.dhl.binding.viewbind.DialogViewBinding
-import com.hi.dhl.binding.viewbind.FragmentViewBinding
-import com.hi.dhl.binding.viewbind.ViewHolderViewBinding
+import com.hi.dhl.binding.databind.*
+import com.hi.dhl.binding.viewbind.*
 
 /**
  * <pre>
@@ -74,6 +70,23 @@ inline fun <reified T : ViewDataBinding> RecyclerView.ViewHolder.databind() =
 inline fun <reified T : ViewDataBinding> RecyclerView.ViewHolder.databind(noinline block: (T.() -> Unit)) =
     ViewHolderDataBinding(T::class.java, block)
 
+inline fun <reified T : ViewBinding> ViewGroup.databind(@LayoutRes resId: Int) =
+    ViewGroupDataBinding(
+        T::class.java,
+        resId,
+        LayoutInflater.from(getContext())
+    )
+
+inline fun <reified T : ViewBinding> ViewGroup.databind(
+    @LayoutRes resId: Int,
+    noinline block: (T.() -> Unit)
+) = ViewGroupDataBinding(
+    T::class.java,
+    resId,
+    LayoutInflater.from(getContext()),
+    block
+)
+
 inline fun <reified T : ViewBinding> Activity.viewbind() =
     ActivityViewBinding(T::class.java, this)
 
@@ -94,3 +107,8 @@ inline fun <reified T : ViewBinding> Dialog.viewbind(lifecycle: Lifecycle) =
 
 inline fun <reified T : ViewBinding> RecyclerView.ViewHolder.viewbind() =
     ViewHolderViewBinding(T::class.java)
+
+inline fun <reified T : ViewBinding> ViewGroup.viewbind() = ViewGroupViewBinding(
+    T::class.java,
+    LayoutInflater.from(getContext())
+)

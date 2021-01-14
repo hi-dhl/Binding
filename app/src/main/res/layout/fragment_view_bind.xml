@@ -52,4 +52,9 @@
         android:layout_marginTop="@dimen/margin_20dp"
         android:layout_marginBottom="@dimen/margin_20dp"
         android:text="使用 include 加载布局" />
+
+    <com.hi.dhl.demo.binding.viewbind.ViewBindCustomView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

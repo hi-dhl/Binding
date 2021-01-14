@@ -12,7 +12,7 @@ One line of code implements DataBinding and ViewBinding. Welcome star
 </p>
 
 <p align="center">
-<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.7/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.7"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
+<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.8/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.8"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
 </p>
 
 <p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/vbdb.png"> 图例1</a> | <a href="http://img.hi-dhl.com/ViewBidnding.png"> 图例2</a></p>
@@ -42,6 +42,7 @@ Binding 未来的规划提供通用的 `findViewById` 解决方案，，因技�
 
 **[Binding](https://github.com/hi-dhl/Binding) 具有以下优点：**
 
+* 支持在自定义 ViewGroup 使用 DataBinding 或者 ViewBinding
 * 提供了很多实战案例包含 `Ativity` 、 `Fragment` 、 `Dialog` 、 `Adapter` 、 `include` 、 `merge` 、 `ViewStub` 、 `Navigation`  、 数据双向绑定 等等场景
 * 简单的 API 只需要一行代码即可实现 DataBinding 或者 ViewBinding
 * 支持在  `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 中的使用 DataBinding 或者 ViewBinding
@@ -49,8 +50,6 @@ Binding 未来的规划提供通用的 `findViewById` 解决方案，，因技�
 * 支持在 Navigaion Fragment 管理框架、 BottomSheetDialogFragment 等等场景中使用 DataBinding 和 ViewBinding
 * 避免大量的模板代码
 * 避免内存泄露，具有生命周期感知能力，当生命周期处于 `onDestroyed()` 时会自动销毁数据
-
-
 
 
 ## Download
@@ -62,8 +61,6 @@ Binding 未来的规划提供通用的 `findViewById` 解决方案，，因技�
 ```
 allprojects {
     repositories {
-        // 如果在国内建议添加 public，public 是 central 仓库 和 jcenter 仓库的聚合仓库
-        maven { url "https://maven.aliyun.com/repository/public" }
         jcenter()
     }
 }
@@ -82,7 +79,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.0.7'
+    implementation 'com.hi-dhl:binding:1.0.8'
 }
 ```
 
@@ -104,9 +101,32 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind)
 val binding: ActivityDataBindBinding by databind()
 ```
 
-我们来看一下在 `Ativity` 、 `Fragment` 、 `Dialog` 、 `Adapter` 、 `include` 、 `merge` 、 `ViewStub` 、 `Navigation`  、 数据双向绑定 等等场景中如何使用。
+我们来看一下在 `Ativity` 、 `Fragment` 、 `Dialog` 、 `Adapter` 、 `include` 、 `merge` 、 `ViewStub` 、 `Navigation`  、 `ViewGroup` 、 数据双向绑定 等等场景中如何使用。
 
 ## 使用
+
+在自定义 ViewGroup 中使用 DataBinding 和 ViewBinding，添加 `by viewbind()` 或者 `by databind(R.layout.activity_main)` 即可，示例如下所示。
+
+
+```
+class ViewBindCustomView @JvmOverloads constructor(
+    context: Context,
+    attr: AttributeSet? = null,
+    defStyleAttr: Int = 0,
+) : LinearLayout(context, attr, defStyleAttr) {
+
+    // ViewBinding
+    val binding: LayoutViewCustomBinding by viewbind()
+    // DataBinding
+    val binding: LayoutViewCustomDataBinding by databind(R.layout.layout_view_custom_data)
+
+    init {
+        with(binding) {
+            result.setText("在自定义 ViewGroup 中使用 DataBinding 或者 ViewBinding")
+        }
+    }
+}
+```
 
 在 Adapter 中使用 DataBinding 和 ViewBinding，只需要在 ViewHolder 中添加 `by viewbind()` 或者 `by databind()` 即可，示例如下所示，[查看详细示例](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
 
@@ -260,6 +280,11 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 ```
 
 ### 更新记录
+
+**2020-1-14**
+
+* 支持在自定义 ViewGroup 使用 DataBinding 或者 ViewBinding
+* 增加了在 ViewGroup 中的使用案例
 
 **2020-12-31**
 

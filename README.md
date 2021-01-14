@@ -12,7 +12,7 @@ One line of code implements DataBinding and ViewBinding. Welcome star<br/>
 </p>
   
 <p align="center">
-<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.7/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.7"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
+<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.8/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.8"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
 </p>
 
 <p align="center"> If the image cannot be viewed, please click here to view it <a href="http://img.hi-dhl.com/vbdb.png"> img1 </a> | <a href="http://img.hi-dhl.com/ViewBidnding.png"> img2 </a></p>
@@ -47,6 +47,7 @@ Thank you for your suggestions. At present, Binding has been adapted to a large 
 
 **[Binding](https://github.com/hi-dhl/Binding)  the following advantages：**
 
+* Support using DataBinding or ViewBinding in custom ViewGroup
 * Provides many cases including `Ativity`, `Fragment`, `Dialog`, `Adapter`, `include`, `merge`, `ViewStub` , `Navigation` etc.
 * A simple API requires only one line of code to implement DataBinding or ViewBinding
 * Support the use of DataBinding or ViewBinding in the `Activity` 、`AppCompatActivity` 、`FragmentActivity` 、`Fragment` 、`Dialog` 
@@ -83,7 +84,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.0.7'
+    implementation 'com.hi-dhl:binding:1.0.8'
 }
 ```
 
@@ -105,9 +106,31 @@ or
 val binding: ActivityDataBindBinding by databind()
 ```
 
-let's see how to use in `Ativity`, `Fragment`, `Dialog`, `Adapter`, `include`, `merge`, `ViewStub` , `Navigation` etc.
+let's see how to use in `Ativity`, `Fragment`, `Dialog`, `Adapter`, `include`, `merge`, `ViewStub` , `Navigation` , `ViewGroup` etc.
 
 ## Usage
+
+Use DataBinding and ViewBinding in Custom ViewGroup, add `by viewbind()` or `by databind(R.layout.activity_main)`, as shown in the example below.
+
+```
+class ViewBindCustomView @JvmOverloads constructor(
+    context: Context,
+    attr: AttributeSet? = null,
+    defStyleAttr: Int = 0,
+) : LinearLayout(context, attr, defStyleAttr) {
+
+    // ViewBinding
+    val binding: LayoutViewCustomBinding by viewbind()
+    // DataBinding
+    val binding: LayoutViewCustomDataBinding by databind(R.layout.layout_view_custom_data)
+
+    init {
+        with(binding) {
+            result.setText("Use DataBinding and ViewBinding in Custom ViewGroup")
+        }
+    }
+}
+```
 
 Use DataBinding and ViewBinding in Adapter (ListAdapter, PagingDataAdapter, RecyclerView.Adapter, etc.), add `by viewbind()` or `by databind()`, the example is as follows，[see example](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/ProductAdapter.kt)
 
@@ -259,6 +282,11 @@ Do not want to generate a binding class for a layout, add the following attribut
 ```
 
 ### change log
+
+**2020-1-14**
+
+* Support using DataBinding or ViewBinding in custom ViewGroup
+* add use cases in ViewGroup
 
 **2020-12-31**
 

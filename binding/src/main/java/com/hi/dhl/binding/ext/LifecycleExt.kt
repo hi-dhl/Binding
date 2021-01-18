@@ -3,9 +3,9 @@ package com.hi.dhl.binding
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
-import android.app.Fragment
 import android.os.Build
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner

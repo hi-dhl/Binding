@@ -12,7 +12,7 @@ One line of code implements DataBinding and ViewBinding. Welcome star<br/>
 </p>
   
 <p align="center">
-<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.8/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.8"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
+<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.9/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.9"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
 </p>
 
 <p align="center"> If the image cannot be viewed, please click here to view it <a href="http://img.hi-dhl.com/vbdb.png"> img1 </a> | <a href="http://img.hi-dhl.com/ViewBidnding.png"> img2 </a></p>
@@ -84,7 +84,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.0.8'
+    implementation 'com.hi-dhl:binding:1.0.9'
 }
 ```
 
@@ -178,12 +178,6 @@ There are two ways in `Fragment`, and their use positions are different, as show
     
 * Method 1: Use in `onCreateView`，[see example](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
 * Method 2: Use in `onViewCreated`，see example [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) and  [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
-
-**PS: Need to pay attention to the following points：**
-
-* If you use Navigaion Fragment management framework, you can only use `Method 1`，[see example](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation) 
-* Use in `BottomSheetDialogFragment` ，you can only use `Method 1`
-* In other Fragment scenarios, if the ui is not displayed using `Method 2`, please use `Method 1` to solve the problem
 
 ```
 Method 1：
@@ -283,7 +277,12 @@ Do not want to generate a binding class for a layout, add the following attribut
 
 ### change log
 
-**2020-1-14**
+**2020-1-25（V1.0.9）**
+
+* Fixed the issue that the diff with Fragment Lifecycle and View Lifecycle [#15](https://github.com/hi-dhl/Binding/issues/15)
+* Fixed the issue that the layout attribute of the root view of Fragment is invalid [#13](https://github.com/hi-dhl/Binding/issues/13)
+
+**2020-1-14（V1.0.8）**
 
 * Support using DataBinding or ViewBinding in custom ViewGroup
 * add use cases in ViewGroup

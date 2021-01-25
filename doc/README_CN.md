@@ -12,7 +12,7 @@ One line of code implements DataBinding and ViewBinding. Welcome star
 </p>
 
 <p align="center">
-<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.8/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.8"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
+<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.9/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.9"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
 </p>
 
 <p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/vbdb.png"> 图例1</a> | <a href="http://img.hi-dhl.com/ViewBidnding.png"> 图例2</a></p>
@@ -79,7 +79,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.0.8'
+    implementation 'com.hi-dhl:binding:1.0.9'
 }
 ```
 
@@ -173,7 +173,7 @@ class MainActivity : AppCompatActivity() {
 
 在 `Fragment` 中提供了两种方式：
     
-* 方式一：在 `onCreateView` 中使用，这种方式适用于所有使用 `Fragment` 的场景，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
+* 方式一：在 `onCreateView` 中使用，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
 * 方式二：在 `onViewCreated` 中使用，查看 [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) 和 [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
 
 **方式一：**
@@ -196,10 +196,7 @@ class FragmentNav1 : Fragment() {
 }
 ```
 
-**方式二，需要注意以下几点：**
-
-* 在 `Navigaion Fragment` 和 `BottomSheetDialogFragment` 中仅能使用方式一，[查看 navigation](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
-* 在其他 Fragment 场景中，如果使用 `方式二` 界面不显示，改用 `方式一` 即可解决
+**方式二：**
 
 ```
 class FragmentNav1 : Fragment(R.layout.fragment_main) {
@@ -281,7 +278,12 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 ### 更新记录
 
-**2020-1-14**
+**2020-1-25（V1.0.9）**
+
+* 修复了 Fragment lifecycle 和 Fragment 中的 View 生命周期不一致问题 [#15](https://github.com/hi-dhl/Binding/issues/15)
+* 修复了 Fragment 根部局的 layout 属性失效的问题 [#13](https://github.com/hi-dhl/Binding/issues/13)
+
+**2020-1-14（V1.0.8）**
 
 * 支持在自定义 ViewGroup 使用 DataBinding 或者 ViewBinding
 * 增加了在 ViewGroup 中的使用案例

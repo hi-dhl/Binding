@@ -7,8 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.viewbinding.ViewBinding
 import com.hi.dhl.binding.LifecycleFragment
-import com.hi.dhl.binding.addObserver
-import com.hi.dhl.binding.registerActivityLifecycleCallbacks
+import com.hi.dhl.binding.observerWhenDestroyed
 import kotlin.properties.ReadOnlyProperty
 
 /**
@@ -28,10 +27,10 @@ abstract class ActivityDelegate<T : ViewBinding>(
 
     init {
         when (activity) {
-            is ComponentActivity -> activity.lifecycle.addObserver { destroyed() }
+            is ComponentActivity -> activity.lifecycle.observerWhenDestroyed { destroyed() }
             else -> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    activity.registerActivityLifecycleCallbacks { destroyed() }
+                    activity.observerWhenDestroyed { destroyed() }
                 }
             }
         }

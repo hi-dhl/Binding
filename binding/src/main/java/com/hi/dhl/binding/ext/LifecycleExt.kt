@@ -6,8 +6,8 @@ import android.app.Application
 import android.app.Fragment
 import android.os.Build
 import android.os.Bundle
+import androidx.lifecycle.BindingLifecycleObserver
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 
 /**
@@ -18,32 +18,42 @@ import androidx.lifecycle.LifecycleOwner
  * </pre>
  */
 
-fun Lifecycle.addObserver(destroyed: () -> Unit) {
-    addObserver(LifecycleObserver(this, destroyed))
+fun Lifecycle.observerWhenDestroyed(destroyed: () -> Unit) {
+    addObserver(LifecycleObserver(lifecycle = this, destroyed = destroyed))
 }
 
-class LifecycleObserver(var lifecycle: Lifecycle?, val destroyed: () -> Unit) :
-    LifecycleEventObserver {
-    override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
-        val lifecycleState = source.lifecycle.currentState
-        if (lifecycleState == Lifecycle.State.DESTROYED) {
-            destroyed()
-            lifecycle?.apply {
-                removeObserver(this@LifecycleObserver)
-                lifecycle = null
-            }
-        }
+fun Lifecycle.observerWhenCreated(create: () -> Unit) {
+    addObserver(LifecycleObserver(lifecycle = this, create = create))
+}
+
+class LifecycleObserver(
+    var lifecycle: Lifecycle?,
+    var destroyed: (() -> Unit)? = null,
+    var create: (() -> Unit)? = null
+) : BindingLifecycleObserver() {
+
+    override fun onCreate(owner: LifecycleOwner) {
+        create?.invoke()
     }
 
+    override fun onDestroy(owner: LifecycleOwner) {
+        destroyed?.invoke()
+        lifecycle?.apply {
+            removeObserver(this@LifecycleObserver)
+            lifecycle = null
+        }
+        create = null
+        destroyed = null
+    }
 }
 
-fun Activity.registerActivityLifecycleCallbacks(destroyed: () -> Unit) {
+fun Activity.observerWhenDestroyed(destroyed: () -> Unit) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
         registerActivityLifecycleCallbacks(LifecycleCallbacks(destroyed))
     }
 }
 
-class LifecycleCallbacks(val destroyed: () -> Unit) :
+class LifecycleCallbacks(var destroyed: (() -> Unit)? = null) :
     Application.ActivityLifecycleCallbacks {
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
     }
@@ -64,15 +74,16 @@ class LifecycleCallbacks(val destroyed: () -> Unit) :
     }
 
     override fun onActivityDestroyed(activity: Activity) {
-        destroyed()
+        destroyed?.invoke()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             activity.unregisterActivityLifecycleCallbacks(this)
         }
+        destroyed = null
     }
 }
 
 class LifecycleFragment : Fragment {
-    lateinit var destroyed: () -> Unit
+    var destroyed: (() -> Unit)? = null
 
     constructor()
 
@@ -83,6 +94,7 @@ class LifecycleFragment : Fragment {
 
     override fun onDestroy() {
         super.onDestroy()
-        destroyed()
+        destroyed?.invoke()
+        destroyed = null
     }
 }

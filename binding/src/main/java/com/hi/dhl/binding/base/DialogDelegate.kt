@@ -3,7 +3,7 @@ package com.hi.dhl.binding.base
 import android.app.Dialog
 import androidx.lifecycle.Lifecycle
 import androidx.viewbinding.ViewBinding
-import com.hi.dhl.binding.addObserver
+import com.hi.dhl.binding.observerWhenDestroyed
 import kotlin.properties.ReadOnlyProperty
 
 /**
@@ -20,7 +20,7 @@ abstract class DialogDelegate<T : ViewBinding>(
     protected var viewBinding: T? = null
 
     init {
-        lifecycle?.addObserver { destroyed() }
+        lifecycle?.observerWhenDestroyed { destroyed() }
     }
 
     fun destroyed() {

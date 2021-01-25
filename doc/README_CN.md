@@ -176,7 +176,7 @@ class MainActivity : AppCompatActivity() {
 * 方式一：在 `onCreateView` 中使用，[查看详细示例](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)
 * 方式二：在 `onViewCreated` 中使用，查看 [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) 和 [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
 
-**方式一：**
+**方式一：不建议使用，建议直接使用方式二，详见 issue [#13](https://github.com/hi-dhl/Binding/issues/13)**
 
 ```
 class FragmentNav1 : Fragment() {

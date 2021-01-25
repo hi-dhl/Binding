@@ -19,29 +19,33 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  *     desc  :
  * </pre>
  */
-class FragmentNav2 : Fragment() {
+class FragmentNav2 : Fragment(R.layout.fragment_nav_2) {
 
     val binding: FragmentNav2Binding by databind()
     val viewModel: MainViewModel by viewModel()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-        return binding.apply {
-            lifecycleOwner = this@FragmentNav2
-            mainViewModel = viewModel
-        }.root
-    }
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View {
+//
+//        return binding.apply {
+//            lifecycleOwner = this@FragmentNav2
+//            mainViewModel = viewModel
+//        }.root
+//    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.generateTimber()
-        binding.btnJump.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_fragmentNav2_to_fragmentNav3)
+        with(binding) {
+            mainViewModel = viewModel
+            viewModel.generateTimber()
+            binding.btnJump.setOnClickListener {
+                Navigation.findNavController(it).navigate(R.id.action_fragmentNav2_to_fragmentNav3)
+            }
         }
+
     }
 
 }

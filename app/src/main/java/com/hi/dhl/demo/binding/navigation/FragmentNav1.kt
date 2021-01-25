@@ -1,9 +1,7 @@
 package com.hi.dhl.demo.binding.navigation
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.hi.dhl.binding.viewbind
@@ -17,16 +15,16 @@ import com.hi.dhl.demo.binding.databinding.FragmentNav1Binding
  *     desc  :
  * </pre>
  */
-class FragmentNav1 : Fragment() {
+class FragmentNav1 : Fragment(R.layout.fragment_nav_1) {
 
     val binding: FragmentNav1Binding by viewbind()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return binding.root
-    }
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View {
+//        return binding.root
+//    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

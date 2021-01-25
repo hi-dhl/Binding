@@ -17,16 +17,16 @@ import com.hi.dhl.demo.binding.databinding.FragmentNav3Binding
  *     desc  :
  * </pre>
  */
-class FragmentNav3 : Fragment() {
+class FragmentNav3 : Fragment(R.layout.fragment_nav_3) {
 
     val binding: FragmentNav3Binding by viewbind()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return binding.root
-    }
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View {
+//        return binding.root
+//    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

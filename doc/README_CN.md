@@ -179,7 +179,7 @@ class MainActivity : AppCompatActivity() {
 **方式一：**
 
 ```
-class FragmentNav1 : Fragment(R.layout.fragment_main) {
+class FragmentNav1 : Fragment() {
     
     // DataBinding
   	val binding: FragmentMainBinding by databind()
@@ -355,13 +355,6 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 **感谢**
 
-中文：
-
-感谢 [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)  文章带来的思路，以及从 [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) 和 jetpack 等等开源库中学习到技巧
-
-English:
-
-* the idea from [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)
-* learn skills from open source libraries such as [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) and jetpack
+感谢 [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)  文章带来的思路，以及从 [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) 、[architecture-components-samples](https://github.com/android/architecture-components-samples) 和 jetpack 等等开源库中学习到技巧
 
 

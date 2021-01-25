@@ -29,7 +29,7 @@ One line of code implements DataBinding and ViewBinding. Welcome star<br/>
 
 * Thanks to Google Translation
 * the idea from [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)
-* learn skills from open source libraries such as [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) and jetpack
+* learn skills from open source libraries such as [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) 、[architecture-components-samples](https://github.com/android/architecture-components-samples) and jetpack
 
 ## About Binding
 
@@ -187,7 +187,7 @@ There are two ways in `Fragment`, and their use positions are different, as show
 
 ```
 Method 1：
-class FragmentNav1 : Fragment(R.layout.fragment_main) {
+class FragmentNav1 : Fragment() {
     
     // DataBinding
   	val binding: FragmentMainBinding by databind()
@@ -357,16 +357,4 @@ Do not want to generate a binding class for a layout, add the following attribut
 * 整理和翻译一系列精选国外的技术文章，每篇文章都会有**译者思考**部分，对原文的更加深入的解读，仓库持续更新，欢迎前去查看 [Technical-Article-Translation](https://github.com/hi-dhl/Technical-Article-Translation)
 
 * 「为互联网人而设计，国内国外名站导航」涵括新闻、体育、生活、娱乐、设计、产品、运营、前端开发、Android 开发等等网址，欢迎前去查看 [为互联网人而设计导航网站](https://site.51git.cn)
-
-**感谢**
-
-中文：
-
-感谢 [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)  文章带来的思路，以及从 [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) 和 jetpack 等等开源库中学习到技巧
-
-English:
-
-* Thanks to Google Translation
-* the idea from [Simple one-liner ViewBinding in Fragments and Activities with Kotlin](https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c)
-* learn skills from open source libraries such as [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) and jetpack
 

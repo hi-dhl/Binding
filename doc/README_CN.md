@@ -1,8 +1,8 @@
 # <p align="center"> Binding </p>
 
 <p align="center">
-一行代码实现 DataBinding 和 ViewBinding，欢迎 star<br/>
-One line of code implements DataBinding and ViewBinding. Welcome star
+Simple API implement DataBinding and ViewBinding. Welcome star<br/>
+简单的 API 实现 DataBinding 和 ViewBinding，欢迎 star
 </p>
 
 <p align="center">

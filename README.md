@@ -1,8 +1,8 @@
 # <p align="center"> Binding </p>
 
 <p align="center">
-One line of code implements DataBinding and ViewBinding. Welcome star<br/>
-一行代码实现 DataBinding 和 ViewBinding，欢迎 star
+Simple API implement DataBinding and ViewBinding. Welcome star<br/>
+简单的 API 实现 DataBinding 和 ViewBinding，欢迎 star
 </p>
 
 <p align="center">
@@ -176,7 +176,7 @@ class MainActivity : AppCompatActivity() {
 
 There are two ways in `Fragment`, and their use positions are different, as shown below.
     
-* Method 1: Use in `onCreateView`，[see example](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)（It is not recommended to use Method 1，It is not recommended to use Method 2，see issue [#13](https://github.com/hi-dhl/Binding/issues/13)）
+* Method 1: Use in `onCreateView`，[see example](https://github.com/hi-dhl/Binding/tree/main/app/src/main/java/com/hi/dhl/demo/binding/navigation)（It is not recommended to use Method 1，It is recommended to use Method 2，see issue [#13](https://github.com/hi-dhl/Binding/issues/13)）
 * Method 2: Use in `onViewCreated`，see example [ViewBindFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/viewbind/ViewBindFragment.kt) and  [DataBindRecycleFragment.kt](https://github.com/hi-dhl/Binding/blob/main/app/src/main/java/com/hi/dhl/demo/binding/databind/list/DataBindRecycleFragment.kt)
 
 ```

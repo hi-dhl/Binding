@@ -39,7 +39,7 @@ class FragmentDataBinding<T : ViewDataBinding>(
 
             return bind.apply {
                 viewBinding = this
-                lifecycleOwner = fragment
+                lifecycleOwner = fragment.viewLifecycleOwner
                 block?.invoke(this)
                 block = null
             }

@@ -20,11 +20,26 @@ class ViewBindCustomView @JvmOverloads constructor(
     defStyleAttr: Int = 0,
 ) : LinearLayout(context, attr, defStyleAttr) {
 
+    lateinit var onDialogClickListener: OnDialogClickListener
+
     val binding: LayoutViewCustomBinding by viewbind()
 
     init {
         with(binding) {
             result.setText("这是 ViewGroup 通过 ViewBinding 绑定")
+            result.setOnClickListener {
+                if (::onDialogClickListener.isInitialized) {
+                    onDialogClickListener.onClick()
+                }
+            }
         }
+    }
+
+    fun setDialogClickListener(onDialogClickListener: OnDialogClickListener) {
+        this.onDialogClickListener = onDialogClickListener
+    }
+
+    interface OnDialogClickListener {
+        fun onClick()
     }
 }

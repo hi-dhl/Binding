@@ -86,7 +86,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.0.9'
+    implementation 'com.hi-dhl:binding:1.1.2'
 }
 ```
 

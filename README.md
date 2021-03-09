@@ -70,6 +70,9 @@ Add the following code to the `build.gradle` file at the Project level
 ```
 allprojects {
     repositories {
+        // aliyun center 包含 mavenCentral 和  jcenter
+        maven { url "https://maven.aliyun.com/repository/public" }
+        // maven
         mavenCentral()
     }
 }
@@ -88,7 +91,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.0.9'
+    implementation 'com.hi-dhl:binding:1.1.2'
 }
 ```
 

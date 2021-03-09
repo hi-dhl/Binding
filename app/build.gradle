@@ -62,7 +62,7 @@ dependencies {
     implementation"androidx.navigation:navigation-ui-ktx:$nav_version"
 
     if (remote) {
-        implementation 'com.hi-dhl:binding:1.0.9'
+        implementation 'com.hi-dhl:binding:1.1.2'
     } else {
         implementation project(':binding')
     }

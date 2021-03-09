@@ -12,7 +12,7 @@ Simple API implement DataBinding and ViewBinding. Welcome star<br/>
 </p>
 
 <p align="center">
-<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.9/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.9"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
+<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://search.maven.org/search?q=g:%22com.hi-dhl%22%20AND%20a:%22binding%22"><img src="https://img.shields.io/maven-central/v/com.hi-dhl/binding.svg?label=Maven%20Central"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
 </p>
 
 <p align="center"> 如果图片无法查看，请点击这里查看 <a href="http://img.hi-dhl.com/vbdb.png"> 图例1</a> | <a href="http://img.hi-dhl.com/ViewBidnding.png"> 图例2</a></p>
@@ -27,6 +27,8 @@ Simple API implement DataBinding and ViewBinding. Welcome star<br/>
 
 
 ## 关于 Binding
+
+> 因 Jcenter 即将被废弃，已经将 Binding 迁移到 mavenCentral
 
 Binding 简化 DataBinding 和 ViewBinding 的使用， 只需要一行代码即可实现 DataBinding 和 ViewBinding。
 
@@ -54,6 +56,8 @@ Binding 未来的规划提供通用的 `findViewById` 解决方案，，因技�
 
 ## Download
 
+因 Jcenter 即将被废弃，已经将 Binding 迁移到 mavenCentral
+
 **添加 jcenter**
 
 将下列代码添加在 Project 级别的 `build.gradle` 文件中
@@ -61,7 +65,10 @@ Binding 未来的规划提供通用的 `findViewById` 解决方案，，因技�
 ```
 allprojects {
     repositories {
-        jcenter()
+        // aliyun center 包含 mavenCentral 和  jcenter
+        maven { url "https://maven.aliyun.com/repository/public" }
+        // maven
+        mavenCentral()
     }
 }
 ```
@@ -277,6 +284,11 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 ```
 
 ### 更新记录
+
+**2020-3-9（V1.1.2）**
+
+* 修改 FragmentDataBinding 绑定 View 生命周期为 viewLifecycleOwner [#18](https://github.com/hi-dhl/Binding/issues/18)
+* 迁移到 mavenCentral
 
 **2020-1-25（V1.0.9）**
 

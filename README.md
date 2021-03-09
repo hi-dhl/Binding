@@ -12,7 +12,7 @@ Simple API implement DataBinding and ViewBinding. Welcome star<br/>
 </p>
   
 <p align="center">
-<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://bintray.com/hi-dhl/MeavenCenter/libraryName-binding/1.0.9/link"><img src="https://api.bintray.com/packages/hi-dhl/MeavenCenter/libraryName-binding/images/download.svg?version=1.0.9"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
+<a href="https://github.com/hi-dhl"><img src="https://img.shields.io/badge/GitHub-HiDhl-4BC51D.svg?style=flat"></a>  <img src="https://img.shields.io/badge/language-kotlin-orange.svg"/> <a href="https://search.maven.org/search?q=g:%22com.hi-dhl%22%20AND%20a:%22binding%22"><img src="https://img.shields.io/maven-central/v/com.hi-dhl/binding.svg?label=Maven%20Central"/></a> <img src="https://img.shields.io/badge/platform-android-lightgrey.svg"/>
 </p>
 
 <p align="center"> If the image cannot be viewed, please click here to view it <a href="http://img.hi-dhl.com/vbdb.png"> img1 </a> | <a href="http://img.hi-dhl.com/ViewBidnding.png"> img2 </a></p>
@@ -32,6 +32,8 @@ Simple API implement DataBinding and ViewBinding. Welcome star<br/>
 * learn skills from open source libraries such as [Anko](https://github.com/Kotlin/anko) 、 [ViewBindingDelegate](https://github.com/hoc081098/ViewBindingDelegate) 、[architecture-components-samples](https://github.com/android/architecture-components-samples) and jetpack
 
 ## About Binding
+
+> Binding has been migrated to Maven Central because jCenter will be deprecated
 
 Binding simplifies the use of DataBinding and ViewBinding, and only requires one line of code to implement DataBinding and ViewBinding.
 
@@ -59,6 +61,8 @@ Thank you for your suggestions. At present, Binding has been adapted to a large 
 
 ## Download
 
+Binding has been migrated to Maven Central because jCenter will be deprecated
+
 **add jcenter**
 
 Add the following code to the `build.gradle` file at the Project level
@@ -66,7 +70,7 @@ Add the following code to the `build.gradle` file at the Project level
 ```
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
 ```
@@ -276,6 +280,11 @@ Do not want to generate a binding class for a layout, add the following attribut
 ```
 
 ### change log
+
+**2020-3-9（V1.1.2）**
+
+* Fixed the issue that the diff with Fragment Lifecycle  [#18](https://github.com/hi-dhl/Binding/issues/18)
+* Binding has been migrated to Maven Central
 
 **2020-1-25（V1.0.9）**
 

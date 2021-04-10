@@ -11,6 +11,7 @@ import com.hi.dhl.demo.binding.databind.BindViewStubActivity
 import com.hi.dhl.demo.binding.databind.list.DataBindRecycleActivity
 import com.hi.dhl.demo.binding.databinding.FragmentViewBindBinding
 import com.hi.dhl.demo.binding.navigation.NavigationActivity
+import com.hi.dhl.demo.binding.viewpager2.ViewPager2Activity
 
 /**
  * <pre>
@@ -42,7 +43,15 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
     }
 
     private fun getViews() = with(binding) {
-        arrayListOf<View>(btnDialog, btnRecycle, btnNavigation, btnDialog, btnStub, btnInclude)
+        arrayListOf<View>(
+            btnDialog,
+            btnRecycle,
+            btnNavigation,
+            btnDialog,
+            btnStub,
+            btnInclude,
+            btnViewPager
+        )
     }
 
     override fun onClick(v: View) {
@@ -59,6 +68,7 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
                 btnNavigation -> NavigationActivity.startActivity(requireActivity())
                 btnStub -> BindViewStubActivity.startActivtiy(requireActivity())
                 btnInclude -> ViewBindIncludeActivity.startActivtiy(requireActivity())
+                btnViewPager -> ViewPager2Activity.startActivity(requireActivity())
                 else -> {
                 }
             }

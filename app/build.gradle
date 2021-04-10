@@ -61,6 +61,8 @@ dependencies {
     implementation"androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation"androidx.navigation:navigation-ui-ktx:$nav_version"
 
+    implementation 'androidx.viewpager2:viewpager2:1.0.0-beta02'
+
     if (remote) {
         implementation 'com.hi-dhl:binding:1.1.2'
     } else {

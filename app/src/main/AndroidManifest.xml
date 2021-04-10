@@ -47,6 +47,10 @@
         <activity
             android:name=".viewbind.ViewBindIncludeActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".viewpager2.ViewPager2Activity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

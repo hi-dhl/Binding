@@ -57,4 +57,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnViewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:text="在 ViewPager2 中的使用" />
+
 </LinearLayout>

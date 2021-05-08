@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.hi.dhl.binding.viewbind
+import com.hi.dhl.demo.binding.databinding.LayoutMergeItemBinding
 import com.hi.dhl.demo.binding.databinding.LayoutViewCustomBinding
 
 /**
@@ -32,6 +33,9 @@ class ViewBindCustomView @JvmOverloads constructor(
                     onDialogClickListener.onClick()
                 }
             }
+
+            LayoutMergeItemBinding.bind(root)
+                .mergeTvTitle.setText("在 ViewGroup 中使用 merge 标签")
         }
     }
 

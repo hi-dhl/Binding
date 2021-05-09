@@ -23,7 +23,11 @@ class ViewBindCustomView @JvmOverloads constructor(
 
     lateinit var onDialogClickListener: OnDialogClickListener
 
-    val binding: LayoutViewCustomBinding by viewbind()
+    // 当根布局为 merge 标签，使用此方法进行初始化
+    val binding: LayoutViewCustomBinding by viewbind(this)
+
+    // 当根布局是非 merge 标签，使用此方法进行初始化
+//    val binding: LayoutViewCustomBinding by viewbind()
 
     init {
         with(binding) {

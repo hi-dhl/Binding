@@ -112,3 +112,10 @@ inline fun <reified T : ViewBinding> ViewGroup.viewbind() = ViewGroupViewBinding
     T::class.java,
     LayoutInflater.from(getContext())
 )
+
+inline fun <reified T : ViewBinding> ViewGroup.viewbind(viewGroup: ViewGroup) =
+    ViewGroupViewBinding(
+        T::class.java,
+        LayoutInflater.from(getContext()),
+        viewGroup
+    )

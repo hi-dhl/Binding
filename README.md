@@ -91,7 +91,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.1.2'
+    implementation 'com.hi-dhl:binding:1.1.3'
 }
 ```
 
@@ -117,7 +117,19 @@ let's see how to use in `Ativity`, `Fragment`, `Dialog`, `Adapter`, `include`, `
 
 ## Usage
 
-Use DataBinding and ViewBinding in Custom ViewGroup, add `by viewbind()` or `by databind(R.layout.activity_main)`, as shown in the example below.
+Use DataBinding and ViewBinding in Custom ViewGroup,
+
+* Use of ViewBinding :
+    * When the root layout is a non-merge label, use this method to initialize `val binding: LayoutViewCustomBinding by viewbind()` 
+    * When the root layout is the merge tag, use this method for initialization `val binding: LayoutViewCustomBinding by viewbind(this)`
+
+* Use of DataBinding
+  
+  ```
+  val binding: LayoutViewCustomDataBinding by databind(R.layout.layout_view_custom_data)
+  ```  
+
+A detailed example is shown below。
 
 ```
 class ViewBindCustomView @JvmOverloads constructor(
@@ -127,7 +139,13 @@ class ViewBindCustomView @JvmOverloads constructor(
 ) : LinearLayout(context, attr, defStyleAttr) {
 
     // ViewBinding
+    
+    // When the root layout is the merge tag, use this method for initialization
+    val binding: LayoutViewCustomBinding by viewbind(this)
+    
+    // When the root layout is a non-merge label, use this method to initialize
     val binding: LayoutViewCustomBinding by viewbind()
+    
     // DataBinding
     val binding: LayoutViewCustomDataBinding by databind(R.layout.layout_view_custom_data)
 
@@ -284,7 +302,11 @@ Do not want to generate a binding class for a layout, add the following attribut
 
 ### change log
 
-**2020-3-9（V1.1.2）**
+**2020-5-09（V1.1.3）**
+
+* fix not found inflate(LayoutInflater) in the ViewGroup [#26](https://github.com/hi-dhl/Binding/issues/26)
+
+**2020-3-09（V1.1.2）**
 
 * Fixed the issue that the diff with Fragment Lifecycle  [#18](https://github.com/hi-dhl/Binding/issues/18)
 * Binding has been migrated to Maven Central

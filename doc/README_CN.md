@@ -86,7 +86,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.1.2'
+    implementation 'com.hi-dhl:binding:1.1.3'
 }
 ```
 
@@ -112,8 +112,19 @@ val binding: ActivityDataBindBinding by databind()
 
 ## 使用
 
-在自定义 ViewGroup 中使用 DataBinding 和 ViewBinding，添加 `by viewbind()` 或者 `by databind(R.layout.activity_main)` 即可，示例如下所示。
+在自定义 ViewGroup 中使用 DataBinding 和 ViewBinding，
 
+* ViewBinding 两种用法
+    * 当根布局是非 merge 标签，使用此方法进行初始化 `val binding: LayoutViewCustomBinding by viewbind()` 
+    * 当根布局为 merge 标签，使用此方法进行初始化 `val binding: LayoutViewCustomBinding by viewbind(this)`
+
+* DataBinding 的使用
+  
+  ```
+  val binding: LayoutViewCustomDataBinding by databind(R.layout.layout_view_custom_data)
+  ```  
+  
+详细的 Demo 示例如下所示。
 
 ```
 class ViewBindCustomView @JvmOverloads constructor(
@@ -123,7 +134,13 @@ class ViewBindCustomView @JvmOverloads constructor(
 ) : LinearLayout(context, attr, defStyleAttr) {
 
     // ViewBinding
+    
+    // 当根布局为 merge 标签，使用此方法进行初始化
+    val binding: LayoutViewCustomBinding by viewbind(this)
+    
+    // 当根布局是非 merge 标签，使用此方法进行初始化
     val binding: LayoutViewCustomBinding by viewbind()
+
     // DataBinding
     val binding: LayoutViewCustomDataBinding by databind(R.layout.layout_view_custom_data)
 
@@ -285,7 +302,11 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 ### 更新记录
 
-**2020-3-9（V1.1.2）**
+**2020-5-09（V1.1.3）**
+
+* 修复在 ViewGroup 中是用 merge 标签，inflate 无法找到的问题 [#26](https://github.com/hi-dhl/Binding/issues/26)
+
+**2020-3-09（V1.1.2）**
 
 * 修改 FragmentDataBinding 绑定 View 生命周期为 viewLifecycleOwner [#18](https://github.com/hi-dhl/Binding/issues/18)
 * 迁移到 mavenCentral

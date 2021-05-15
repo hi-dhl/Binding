@@ -30,6 +30,14 @@
         android:text="在 RecycleView 当中的使用" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnBRVAH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:text="结合开源库 BRVAH 使用" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnNavigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

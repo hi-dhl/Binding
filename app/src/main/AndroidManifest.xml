@@ -12,6 +12,7 @@
         android:theme="@style/Theme.Binding">
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,6 +52,11 @@
         <activity
             android:name=".viewpager2.ViewPager2Activity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".brvah.BRVAHActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

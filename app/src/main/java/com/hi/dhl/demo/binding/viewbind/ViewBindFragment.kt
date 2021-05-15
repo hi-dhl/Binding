@@ -7,6 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.hi.dhl.binding.viewbind
 import com.hi.dhl.demo.binding.R
+import com.hi.dhl.demo.binding.brvah.BRVAHActivity
 import com.hi.dhl.demo.binding.databind.BindViewStubActivity
 import com.hi.dhl.demo.binding.databind.list.DataBindRecycleActivity
 import com.hi.dhl.demo.binding.databinding.FragmentViewBindBinding
@@ -50,7 +51,8 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
             btnDialog,
             btnStub,
             btnInclude,
-            btnViewPager
+            btnViewPager,
+            btnBRVAH
         )
     }
 
@@ -65,6 +67,7 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
                     }
                 }
                 btnRecycle -> DataBindRecycleActivity.startActivity(requireActivity())
+                btnBRVAH -> BRVAHActivity.startActivity(requireActivity())
                 btnNavigation -> NavigationActivity.startActivity(requireActivity())
                 btnStub -> BindViewStubActivity.startActivtiy(requireActivity())
                 btnInclude -> ViewBindIncludeActivity.startActivtiy(requireActivity())

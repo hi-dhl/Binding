@@ -302,21 +302,21 @@ Do not want to generate a binding class for a layout, add the following attribut
 
 ### change log
 
-**2020-5-09（V1.1.3）**
+**2021-5-09（V1.1.3）**
 
 * fix not found inflate(LayoutInflater) in the ViewGroup [#26](https://github.com/hi-dhl/Binding/issues/26)
 
-**2020-3-09（V1.1.2）**
+**2021-3-09（V1.1.2）**
 
 * Fixed the issue that the diff with Fragment Lifecycle  [#18](https://github.com/hi-dhl/Binding/issues/18)
 * Binding has been migrated to Maven Central
 
-**2020-1-25（V1.0.9）**
+**2021-1-25（V1.0.9）**
 
 * Fixed the issue that the diff with Fragment Lifecycle and View Lifecycle [#15](https://github.com/hi-dhl/Binding/issues/15)
 * Fixed the issue that the layout attribute of the root view of Fragment is invalid [#13](https://github.com/hi-dhl/Binding/issues/13)
 
-**2020-1-14（V1.0.8）**
+**2021-1-14（V1.0.8）**
 
 * Support using DataBinding or ViewBinding in custom ViewGroup
 * add use cases in ViewGroup

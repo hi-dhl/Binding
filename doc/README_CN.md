@@ -302,21 +302,21 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 ### 更新记录
 
-**2020-5-09（V1.1.3）**
+**2021-5-09（V1.1.3）**
 
 * 修复在 ViewGroup 中是用 merge 标签，inflate 无法找到的问题 [#26](https://github.com/hi-dhl/Binding/issues/26)
 
-**2020-3-09（V1.1.2）**
+**2021-3-09（V1.1.2）**
 
 * 修改 FragmentDataBinding 绑定 View 生命周期为 viewLifecycleOwner [#18](https://github.com/hi-dhl/Binding/issues/18)
 * 迁移到 mavenCentral
 
-**2020-1-25（V1.0.9）**
+**2021-1-25（V1.0.9）**
 
 * 修复了 Fragment lifecycle 和 Fragment 中的 View 生命周期不一致问题 [#15](https://github.com/hi-dhl/Binding/issues/15)
 * 修复了 Fragment 根部局的 layout 属性失效的问题 [#13](https://github.com/hi-dhl/Binding/issues/13)
 
-**2020-1-14（V1.0.8）**
+**2021-1-14（V1.0.8）**
 
 * 支持在自定义 ViewGroup 使用 DataBinding 或者 ViewBinding
 * 增加了在 ViewGroup 中的使用案例

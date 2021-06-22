@@ -297,6 +297,7 @@ Do not want to generate a binding class for a layout, add the following attribut
 -keepclassmembers class ** implements androidx.viewbinding.ViewBinding {
     public static ** bind(***);
     public static ** inflate(***);
+    public static ** inflate(**,**);
 }
 ```
 

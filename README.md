@@ -91,7 +91,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.1.3'
+    implementation 'com.hi-dhl:binding:1.1.4'
 }
 ```
 
@@ -302,6 +302,11 @@ Do not want to generate a binding class for a layout, add the following attribut
 ```
 
 ### change log
+
+**2022-5-03（V1.1.4）**
+
+*  修复了生命周期问题
+*  修复了销毁之后再次使用，由于 delegate property 会被再次初始化，出现的异常 [#31](https://github.com/hi-dhl/Binding/issues/31)
 
 **2021-5-09（V1.1.3）**
 

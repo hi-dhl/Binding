@@ -16,6 +16,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
         maven { url "https://maven.aliyun.com/repository/public" }
         maven { url 'https://maven.aliyun.com/repository/google' }
         google()

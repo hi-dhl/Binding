@@ -46,3 +46,5 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat"
     implementation "androidx.recyclerview:recyclerview:$recyclerview"
 }
+
+apply from: 'gradle-mvn-push.gradle'

@@ -38,7 +38,7 @@ class FragmentViewBinding<T : ViewBinding>(
                  * 捕获这个异常的原因，是为了兼容之前的版本，防止因为升级，造成崩溃，如果不正确使用，将会输出一些日志作为警告
                  */
                 check(thisRef.viewLifecycleOwner.lifecycle.currentState.isAtLeast(Lifecycle.State.INITIALIZED)) {
-                    "cannot use binding in before onCreateView() or after onDestroyView() from 1.1.3. about [issue](https://github.com/hi-dhl/Binding/issues/31#issuecomment-1109733307)"
+                    "cannot use binding in before onCreateView() or after onDestroyView() from 1.1.4. about [issue](https://github.com/hi-dhl/Binding/issues/31#issuecomment-1109733307)"
                 }
             } catch (e: Exception) {
                 e.printStackTrace()

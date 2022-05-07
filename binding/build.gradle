@@ -11,7 +11,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 30
         versionCode 10104
-        versionName "1.1.4"
+        versionName "1.1.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

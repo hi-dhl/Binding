@@ -82,9 +82,11 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.1.4'
+    implementation 'com.hi-dhl:binding:${binding_version}'
 }
 ```
+
+binding 最新版本 ![](https://img.shields.io/maven-central/v/com.hi-dhl/binding.svg?label=Maven%20Central)
 
 ## 简单的 API
 

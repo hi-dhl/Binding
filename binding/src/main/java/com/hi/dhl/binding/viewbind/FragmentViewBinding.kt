@@ -1,6 +1,5 @@
 package com.hi.dhl.binding.viewbind
 
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewbinding.ViewBinding
@@ -31,13 +30,20 @@ class FragmentViewBinding<T : ViewBinding>(
 
         } ?: let {
 
-            /**
-             * 检查目的，是为了防止在 onCreateView() or after onDestroyView() 使用 binding。
-             * 另外在销毁之后，如果再次使用，由于 delegate property 会被再次初始化而出现的异常
-             */
-            if(thisRef.viewLifecycleOwner.lifecycle.currentState.isAtLeast(Lifecycle.State.INITIALIZED)) {
-                Log.w(TAG,"cannot use binding in before onCreateView() or after onDestroyView() from 1.1.4. about [issue](https://github.com/hi-dhl/Binding/issues/31#issuecomment-1109733307)")
+            try {
+                /**
+                 * 检查目的，是为了防止在 onCreateView() or after onDestroyView() 使用 binding。
+                 * 另外在销毁之后，如果再次使用，由于 delegate property 会被再次初始化出现的异常
+                 *
+                 * 捕获这个异常的原因，是为了兼容之前的版本，防止因为升级，造成崩溃
+                 */
+                check(thisRef.viewLifecycleOwner.lifecycle.currentState.isAtLeast(Lifecycle.State.INITIALIZED)) {
+                    "cannot use binding in before onCreateView() or after onDestroyView() from 1.1.4. about [issue](https://github.com/hi-dhl/Binding/issues/31#issuecomment-1109733307)"
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
+
 
             val bind: T
             if (thisRef.view == null) {
@@ -50,9 +56,5 @@ class FragmentViewBinding<T : ViewBinding>(
 
             return bind.apply { viewBinding = this }
         }
-    }
-
-    companion object {
-        private val TAG = "FragmentViewBinding"
     }
 }

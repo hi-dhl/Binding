@@ -6,6 +6,8 @@ import android.app.Application
 import android.app.Fragment
 import android.os.Build
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.BindingLifecycleObserver
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
@@ -96,5 +98,24 @@ class LifecycleFragment : Fragment {
         super.onDestroy()
         destroyed?.invoke()
         destroyed = null
+    }
+}
+
+/**
+ * 当继承 Activity 且 Build.VERSION.SDK_INT < Build.VERSION_CODES.Q 以下的时候，
+ * 会添加一个 空白的 Fragment, 当生命周期处于 onDestroy 时销毁数据
+ */
+private const val LIFECYCLE_FRAGMENT_TAG = "com.hi.dhl.binding.lifecycle_fragment"
+internal inline fun Activity.registerLifecycleBelowQ(crossinline destroyed: () -> Unit) {
+    val activity = this
+    if (activity is FragmentActivity || activity is AppCompatActivity) return
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) return
+
+    val fragmentManager = activity.fragmentManager
+    if (fragmentManager.findFragmentByTag(LIFECYCLE_FRAGMENT_TAG) == null) {
+        val transaction = fragmentManager.beginTransaction()
+        transaction.add(LifecycleFragment { destroyed() }, LIFECYCLE_FRAGMENT_TAG).commit()
+        fragmentManager.executePendingTransactions()
     }
 }

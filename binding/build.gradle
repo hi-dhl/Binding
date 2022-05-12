@@ -47,4 +47,4 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$recyclerview"
 }
 
-apply from: 'gradle-mvn-push.gradle'
+//apply from: 'gradle-mvn-push.gradle'

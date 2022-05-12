@@ -300,6 +300,10 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 ### 更新记录
 
+**2022-5-12（V1.1.5）**
+
+*  修改 ViewGroup 销毁的时候释放资源 [#33](https://github.com/hi-dhl/Binding/issues/33)
+
 **2022-5-03（V1.1.4）**
 
 *  修复了生命周期问题

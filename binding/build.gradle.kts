@@ -1,17 +1,18 @@
+import com.hi.dhl.*
 plugins {
     id("com.android.library")
     id("kotlin-android")
 }
 
 android {
-    compileSdkVersion(30)
-    buildToolsVersion("30.0.2")
+    compileSdkVersion(Versions.compileSdkVersion)
+    buildToolsVersion(Versions.buildToolsVersion)
 
     defaultConfig {
-        minSdkVersion(14)
-        targetSdkVersion(30)
-        versionCode = 10104
-        versionName = "1.1.5"
+        minSdkVersion(Versions.minSdkVersion)
+        targetSdkVersion(Versions.targetSdkVersion)
+        versionCode = Versions.versionCode
+        versionName = Versions.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -28,7 +29,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
     buildFeatures {
         dataBinding = true
@@ -37,15 +38,10 @@ android {
 }
 
 dependencies {
-    val core = "1.3.2"
-    val appcompat = "1.2.0"
-    val recyclerview = "1.1.0"
-    val kotlinVersion = "1.4.21"
-
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
-    implementation("androidx.core:core-ktx:$core")
-    implementation("androidx.appcompat:appcompat:$appcompat")
-    implementation("androidx.recyclerview:recyclerview:$recyclerview")
+    implementation(Deps.kotlinStdlib)
+    implementation(Deps.AndroidX.coreKtx)
+    implementation(Deps.AndroidX.appcompat)
+    implementation(Deps.AndroidX.recyclerview)
 }
 
 //apply from: 'gradle-mvn-push.gradle'

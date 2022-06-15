@@ -1,3 +1,6 @@
+import com.hi.dhl.*
+import com.hi.dhl.Versions.remote
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -40,37 +43,27 @@ android {
 }
 
 dependencies {
-    val fragment = "1.2.5"
-    val koin_version = "2.2.1"
-    val nav_version = "2.3.2"
-    val constraintlayout = "2.0.4"
-    val material = "1.2.1"
-    val appcompat = "1.2.0"
-    val ktx = "1.3.2"
-    val remote = false
-    val kotlinVersion = "1.4.21"
+    implementation(Deps.kotlinStdlib)
+    implementation(Deps.AndroidX.coreKtx)
+    implementation(Deps.AndroidX.appcompat)
+    implementation(Deps.Android.material)
+    implementation(Deps.AndroidX.constraintlayout)
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
-    implementation("androidx.core:core-ktx:${ktx}")
-    implementation("androidx.appcompat:appcompat:${appcompat}")
-    implementation("com.google.android.material:material:${material}")
-    implementation("androidx.constraintlayout:constraintlayout:${constraintlayout}")
+    implementation(Deps.AndroidX.viewmodel)
+    implementation(Deps.coil)
 
-    implementation("org.koin:koin-androidx-viewmodel:${koin_version}")
-    implementation("io.coil-kt:coil:1.1.0")
+    implementation(Deps.AndroidX.navigationFragmentKtx)
+    implementation(Deps.AndroidX.navigationUiKtx)
 
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
-
-    implementation("androidx.viewpager2:viewpager2:1.0.0-beta02")
+    implementation(Deps.AndroidX.viewpager2)
 
     if (remote) {
-        implementation("com.hi-dhl:binding:1.1.3")
+        implementation(Deps.binding)
     } else {
         implementation(project(":binding"))
     }
-    implementation("com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4")
-    testImplementation("junit:junit:4.+")
-    androidTestImplementation("androidx.test.ext:junit:1.1.2")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
+    implementation(Deps.baseRecyclerViewAdapterHelper)
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.AndroidX.junitExt)
+    androidTestImplementation(Deps.AndroidX.espressoCore)
 }

@@ -3,17 +3,18 @@ apply{
 }
 
 buildscript {
+
     repositories {
         gradlePluginPortal()
     }
     dependencies {
-        classpath(kotlin("gradle-plugin", "1.4.21"))
+        classpath(kotlin("gradle-plugin", "1.6.10"))
     }
 }
 
 dependencies {
     implementation(gradleKotlinDsl())
-    implementation(kotlin("stdlib", "1.4.21"))
+    implementation(kotlin("stdlib", "1.6.10"))
 }
 
 repositories {

@@ -1,5 +1,4 @@
 import com.hi.dhl.*
-import com.hi.dhl.Versions.remote
 
 plugins {
     id("com.android.application")
@@ -9,13 +8,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
-    buildToolsVersion("30.0.2")
+    compileSdk = Versions.compileSdkVersion
+    buildToolsVersion = Versions.buildToolsVersion
 
     defaultConfig {
         applicationId = "com.hi.dhl.demo.binding"
-        minSdkVersion(24)
-        targetSdkVersion(30)
+        minSdk = 24
+        targetSdk = 30
         versionCode = 1
         versionName = "1.0"
 
@@ -24,16 +23,18 @@ android {
 
     buildTypes {
         getByName("release") {
-            minifyEnabled(true)
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Common.jdk
+        targetCompatibility = Common.jdk
     }
+
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Common.jdk.toString()
     }
 
     buildFeatures {
@@ -57,7 +58,7 @@ dependencies {
 
     implementation(Deps.AndroidX.viewpager2)
 
-    if (remote) {
+    if (Versions.remote) {
         implementation(Deps.binding)
     } else {
         implementation(project(":binding"))

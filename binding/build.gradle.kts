@@ -1,35 +1,33 @@
 import com.hi.dhl.*
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
 }
 
 android {
-    compileSdkVersion(Versions.compileSdkVersion)
-    buildToolsVersion(Versions.buildToolsVersion)
+    compileSdk = Versions.compileSdkVersion
+    buildToolsVersion = Versions.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion(Versions.minSdkVersion)
-        targetSdkVersion(Versions.targetSdkVersion)
-        versionCode = Versions.versionCode
-        versionName = Versions.versionName
-
+        minSdk = Versions.libMinSdkVersion
+        targetSdk = Versions.libTargetSdkVersion
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         getByName("release") {
-            minifyEnabled(false)
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Common.jdk
+        targetCompatibility = Common.jdk
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = Common.jdk.toString()
     }
     buildFeatures {
         dataBinding = true

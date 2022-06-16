@@ -1,5 +1,7 @@
 package com.hi.dhl
 
+import org.gradle.api.JavaVersion
+
 object Versions {
     val junit = "4.12"
 
@@ -23,13 +25,17 @@ object Versions {
 
     val compileSdkVersion = 30
     val buildToolsVersion = "30.0.2"
-    val minSdkVersion = 14
-    val targetSdkVersion = 30
-    val versionCode = 10104
-    val versionName = "1.1.5"
+    val libMinSdkVersion = 14
+    val libTargetSdkVersion = 32
+    val libVersionCode = 10104
+    val libVersionName = "1.1.5"
 
     val remote = false
 
+}
+
+object Common{
+    val jdk = JavaVersion.VERSION_11
 }
 
 object Deps {

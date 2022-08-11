@@ -74,8 +74,7 @@ inline fun <reified T : ViewBinding> ViewGroup.databind(@LayoutRes resId: Int) =
     ViewGroupDataBinding(
         classes = T::class.java,
         resId = resId,
-        inflater = LayoutInflater.from(getContext()),
-        viewGroup = this
+        inflater = LayoutInflater.from(getContext())
     )
 
 inline fun <reified T : ViewBinding> ViewGroup.databind(
@@ -112,8 +111,7 @@ inline fun <reified T : ViewBinding> RecyclerView.ViewHolder.viewbind() =
 
 inline fun <reified T : ViewBinding> ViewGroup.viewbind() = ViewGroupViewBinding(
     classes = T::class.java,
-    inflater = LayoutInflater.from(getContext()),
-    viewGroup = this
+    inflater = LayoutInflater.from(getContext())
 )
 
 inline fun <reified T : ViewBinding> ViewGroup.viewbind(viewGroup: ViewGroup) =

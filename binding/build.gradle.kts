@@ -42,4 +42,6 @@ dependencies {
     implementation(Deps.AndroidX.recyclerview)
 }
 
-//apply from: 'gradle-mvn-push.gradle'
+//apply{
+//        from("${rootDir}/gradle-mvn-push.gradle")
+//}

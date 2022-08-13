@@ -16,7 +16,7 @@ object Versions {
     val appcompat = "1.2.0"
     val coreKtx = "1.3.2"
     val coil = "1.1.0"
-    val binding = "1.1.3"
+    val binding = "1.1.6"
     val baseRecyclerViewAdapterHelper = "3.0.4"
     val espressoCore = "3.3.0"
     val junitExt = "1.1.2"
@@ -30,7 +30,7 @@ object Versions {
     val libVersionCode = 10104
     val libVersionName = "1.1.5"
 
-    val remote = false
+    val remote = true
 
 }
 

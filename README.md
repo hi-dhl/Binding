@@ -305,6 +305,10 @@ Do not want to generate a binding class for a layout, add the following attribut
 
 ### change log
 
+**2022-7-13（V1.1.16）**
+
+* 兼容不传 ViewGroup 的情况[#34](https://github.com/hi-dhl/Binding/issues/34)
+
 **2022-5-12（V1.1.5）**
 
 *  修改 ViewGroup 销毁的时候释放资源 [#33](https://github.com/hi-dhl/Binding/issues/33)

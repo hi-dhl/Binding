@@ -1,0 +1,45 @@
+import com.hi.dhl.*
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdk = Versions.compileSdkVersion
+    buildToolsVersion = Versions.buildToolsVersion
+
+    defaultConfig {
+        minSdk  Versions.libMinSdkVersion
+        targetSdk  Versions.libTargetSdkVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+        suppressWarnings = true
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+}
+dependencies {
+
+    implementation Deps.kotlinStdlib
+    implementation Deps.AndroidX.coreKtx
+    implementation Deps.AndroidX.appcompat
+    implementation Deps.AndroidX.recyclerview
+
+}
+
+//apply from: "${rootDir}/gradle-mvn-push.gradle"

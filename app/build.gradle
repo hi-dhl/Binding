@@ -25,12 +25,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
+
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     buildFeatures {
@@ -49,7 +51,6 @@ dependencies {
     ext.ktx = "1.3.2"
     ext.remote = true
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:${ktx}"
     implementation "androidx.appcompat:appcompat:${appcompat}"
     implementation "com.google.android.material:material:${material}"
@@ -64,7 +65,7 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.0.0-beta02'
 
     if (remote) {
-        implementation 'com.hi-dhl:binding:1.1.9.3-SNAPSHOT'
+        implementation 'com.hi-dhl:binding:1.1.9.5-SNAPSHOT'
     } else {
         implementation project(':binding')
     }

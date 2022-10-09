@@ -41,7 +41,6 @@ dependencies {
     ext.appcompat = "1.2.0"
     ext.recyclerview = "1.1.0"
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$core"
     implementation "androidx.appcompat:appcompat:$appcompat"
     implementation "androidx.recyclerview:recyclerview:$recyclerview"

@@ -16,7 +16,7 @@ object Versions {
     val appcompat = "1.2.0"
     val coreKtx = "1.3.2"
     val coil = "1.1.0"
-    val binding = "1.1.7"
+    val binding = "1.1.9-SNAPSHOT"
     val baseRecyclerViewAdapterHelper = "3.0.4"
     val espressoCore = "3.3.0"
     val junitExt = "1.1.2"
@@ -51,7 +51,7 @@ object Deps {
         val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
         val viewpager2 = "androidx.viewpager2:viewpager2:${Versions.viewpager2}"
         val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
-        val espressoCore = "androidx.test.espresso:espresso-core${Versions.espressoCore}"
+        val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
         val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     }
 

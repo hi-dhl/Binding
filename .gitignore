@@ -271,3 +271,4 @@ captures/
 *.DS_Store
 
 .MWebMetaData/
+.sync/

@@ -1,17 +1,20 @@
-import com.hi.dhl.*
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'kotlin-parcelize'
 }
 
 android {
-    compileSdk = Versions.compileSdkVersion
-    buildToolsVersion = Versions.buildToolsVersion
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
-        minSdk  Versions.libMinSdkVersion
-        targetSdk  Versions.libTargetSdkVersion
+        minSdkVersion 14
+        targetSdkVersion 30
+        versionCode 10104
+        versionName "1.1.5"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -25,21 +28,23 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
-        suppressWarnings = true
+        jvmTarget = '1.8'
     }
     buildFeatures {
         dataBinding = true
         viewBinding = true
     }
 }
+
 dependencies {
+    ext.core = "1.3.2"
+    ext.appcompat = "1.2.0"
+    ext.recyclerview = "1.1.0"
 
-    implementation Deps.kotlinStdlib
-    implementation Deps.AndroidX.coreKtx
-    implementation Deps.AndroidX.appcompat
-    implementation Deps.AndroidX.recyclerview
-
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$core"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview"
 }
 
-//apply from: "${rootDir}/gradle-mvn-push.gradle"
+//apply from: 'gradle-mvn-push.gradle'

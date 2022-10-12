@@ -300,6 +300,10 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 ### 更新记录
 
+**2022-10-07（V1.1.9）**
+
+* 兼容 jdk >= 1.8
+
 **2022-7-13（V1.1.7）**
 
 * 兼容不传 ViewGroup 的情况[#34](https://github.com/hi-dhl/Binding/issues/34)

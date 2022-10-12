@@ -6,13 +6,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion 32
 
     defaultConfig {
         applicationId "com.hi.dhl.demo.binding"
         minSdkVersion 24
-        targetSdkVersion 30
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
 
@@ -65,7 +64,7 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.0.0-beta02'
 
     if (remote) {
-        implementation 'com.hi-dhl:binding:1.1.9.5-SNAPSHOT'
+        implementation 'com.hi-dhl:binding:1.1.9'
     } else {
         implementation project(':binding')
     }

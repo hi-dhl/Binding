@@ -305,6 +305,10 @@ Do not want to generate a binding class for a layout, add the following attribut
 
 ### change log
 
+**2022-10-07（V1.1.9）**
+
+* Compatible with jdk >= 1.8 version
+
 **2022-7-13（V1.1.7）**
 
 * 兼容不传 ViewGroup 的情况[#34](https://github.com/hi-dhl/Binding/issues/34)

@@ -57,6 +57,8 @@
             android:name=".brvah.BRVAHActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".viewbind.nested.NestedActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

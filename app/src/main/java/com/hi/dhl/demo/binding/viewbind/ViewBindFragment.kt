@@ -12,6 +12,7 @@ import com.hi.dhl.demo.binding.databind.BindViewStubActivity
 import com.hi.dhl.demo.binding.databind.list.DataBindRecycleActivity
 import com.hi.dhl.demo.binding.databinding.FragmentViewBindBinding
 import com.hi.dhl.demo.binding.navigation.NavigationActivity
+import com.hi.dhl.demo.binding.viewbind.nested.NestedActivity
 import com.hi.dhl.demo.binding.viewpager2.ViewPager2Activity
 
 /**
@@ -52,7 +53,8 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
             btnStub,
             btnInclude,
             btnViewPager,
-            btnBRVAH
+            btnBRVAH,
+            btnFragment
         )
     }
 
@@ -72,6 +74,7 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
                 btnStub -> BindViewStubActivity.startActivtiy(requireActivity())
                 btnInclude -> ViewBindIncludeActivity.startActivtiy(requireActivity())
                 btnViewPager -> ViewPager2Activity.startActivity(requireActivity())
+                btnFragment -> NestedActivity.startActivity(requireActivity())
                 else -> {
                 }
             }

@@ -73,4 +73,12 @@
         android:layout_marginBottom="@dimen/margin_20dp"
         android:text="在 ViewPager2 中的使用" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:text="在一个页面中加载2个Fragment" />
+
 </LinearLayout>

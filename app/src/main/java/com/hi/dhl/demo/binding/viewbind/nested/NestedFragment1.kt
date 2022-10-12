@@ -20,11 +20,12 @@ class NestedFragment1 : Fragment(R.layout.fragment_nested1) {
 
 
     val binding: FragmentNested1Binding by viewbind()
-    var activity: Activity? = null
+    var activity: NestedActivity? = null
+    var resId = R.drawable.avatar
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is Activity) {
+        if (context is NestedActivity) {
             activity = context
         }
     }
@@ -33,8 +34,9 @@ class NestedFragment1 : Fragment(R.layout.fragment_nested1) {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding){
-            image.setImageResource(R.drawable.avatar)
+            image.setImageResource(resId)
         }
     }
+
 
 }

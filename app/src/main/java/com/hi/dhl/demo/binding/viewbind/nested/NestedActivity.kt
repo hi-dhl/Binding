@@ -26,9 +26,15 @@ class NestedActivity : AppCompatActivity() {
     }
 
     private fun addFragment() {
+        val fragment1 = NestedFragment1()
+        fragment1.resId = R.drawable.avatar
+
+        val fragment2 = NestedFragment1()
+        fragment2.resId = R.drawable.logo
+
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment1, NestedFragment1())
-            .add(R.id.fragment2, NestedFragment2())
+            .add(R.id.fragment1, fragment1)
+            .add(R.id.fragment2, fragment2)
             .commit()
     }
 

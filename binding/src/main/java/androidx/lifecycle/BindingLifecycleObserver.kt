@@ -8,7 +8,7 @@ package androidx.lifecycle
  * </pre>
  */
 
-open class BindingLifecycleObserver : FullLifecycleObserver {
+open class BindingLifecycleObserver : DefaultLifecycleObserver {
 
     override fun onCreate(owner: LifecycleOwner) {
     }

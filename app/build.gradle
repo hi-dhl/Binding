@@ -64,7 +64,7 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.0.0-beta02'
 
     if (remote) {
-        implementation 'com.hi-dhl:binding:1.1.9'
+        implementation 'com.hi-dhl:binding:1.2.0'
     } else {
         implementation project(':binding')
     }

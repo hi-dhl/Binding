@@ -305,6 +305,10 @@ Do not want to generate a binding class for a layout, add the following attribut
 
 ### change log
 
+**2023-04-13（V1.2.0）**
+
+* 兼容 lifecycle 2.6.0 FullLifecycleObserver 被删除的问题
+
 **2022-10-07（V1.1.9）**
 
 * Compatible with jdk >= 1.8 version

@@ -300,6 +300,10 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 
 ### 更新记录
 
+**2023-04-13（V1.2.0）**
+
+* 兼容 lifecycle 2.6.0 FullLifecycleObserver 被删除的问题
+
 **2022-10-07（V1.1.9）**
 
 * 兼容 jdk >= 1.8
